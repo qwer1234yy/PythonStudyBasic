@@ -1,1 +1,1 @@
-learn resources: http://www.liujiangblog.com
+learn resources for python: http://www.liujiangblog.com
