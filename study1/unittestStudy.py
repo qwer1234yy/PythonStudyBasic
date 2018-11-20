@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class PythonOrgSearch(unittest.testcase):
+class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -34,7 +34,8 @@ class PythonOrgSearch(unittest.testcase):
         search_elem.send_keys(Keys.RETURN)
         assert "Welcome to Python.org" not in driver.page_source
         print("Welcome to Python.org" not in driver.page_source)
-
+    def test3(self):
+        print('test3')
     def tearDown(self):
         self.driver.close()
 
