@@ -736,3 +736,76 @@ console.error: BroadcastService:
   Stack:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:711:13
 
+1542642268601	geckodriver	INFO	geckodriver 0.19.0
+1542642268613	geckodriver	INFO	Listening on 127.0.0.1:10057
+1542642271766	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\Robby\\AppData\\Local\\Temp\\rust_mozprofile.IQWfBS9LV9Rk"
+1542642279992	Marionette	INFO	Listening on port 10065
+1542642280196	Marionette	WARN	TLS certificate errors will be ignored for this session
+1542642280290	Marionette	DEBUG	[6442450945] Frame script loaded
+1542642280292	Marionette	DEBUG	[6442450945] Frame script registered
+1542642280348	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1542642281595	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1542642282462	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.ctrip.com/
+1542642287013	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450951
+1542642289333	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.ctrip.com/
+1542642289464	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.ctrip.com/
+1542642289644	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.ctrip.com/
+1542642289645	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.ctrip.com/
+1542642289860	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.ctrip.com/
+1542642289864	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450953
+1542642289865	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450949
+1542642290375	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.ctrip.com/
+1542642290711	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642292007	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642293323	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642294590	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642295874	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642297144	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542642297889	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+[Parent 6116, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A000F,name=PHttpChannel::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x560027,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+1542642303403	Marionette	INFO	Stopped listening on port 10065
+[GPU 6524, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1542898747077	geckodriver	INFO	geckodriver 0.19.0
+1542898747091	geckodriver	INFO	Listening on 127.0.0.1:10140
+1542898750213	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\Robby\\AppData\\Local\\Temp\\rust_mozprofile.BLa3XDBOxV49"
+1542898757525	Marionette	INFO	Listening on port 10148
+1542898758007	Marionette	WARN	TLS certificate errors will be ignored for this session
+1542898758071	Marionette	DEBUG	[6442450945] Frame script loaded
+1542898758103	Marionette	DEBUG	[6442450945] Frame script registered
+1542898758166	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1542898758497	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1542898759314	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.ctrip.com/
+1542898763164	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450951
+1542898766668	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.ctrip.com/
+1542898766763	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.ctrip.com/
+1542898766902	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.ctrip.com/
+1542898766903	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.ctrip.com/
+1542898767097	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.ctrip.com/
+1542898767101	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450953
+1542898767101	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450949
+1542898767446	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.ctrip.com/
+1542898767713	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450958
+1542898767765	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898769034	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898770362	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898771607	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898772864	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898774113	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1542898774849	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1542898791059	Marionette	INFO	Stopped listening on port 10148
+[GPU 7756, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
