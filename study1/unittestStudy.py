@@ -9,7 +9,7 @@ class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
 
-    def test_search_in_python_org(self):
+    def test_a1earch_in_python_org(self):
         driver = self.driver
         driver.get("http://www.python.org")
         time.sleep(3)
@@ -21,7 +21,7 @@ class PythonOrgSearch(unittest.TestCase):
         elem.send_keys(Keys.RETURN)
         assert "No results found." not in driver.page_source
 
-    def test_search_in_python_org_baidu(self):
+    def test_a2earch_in_python_org_baidu(self):
         driver = self.driver
         driver.get("http://www.baidu.com")
         time.sleep(3)
@@ -34,7 +34,7 @@ class PythonOrgSearch(unittest.TestCase):
         search_elem.send_keys(Keys.RETURN)
         assert "Welcome to Python.org" not in driver.page_source
         print("Welcome to Python.org" not in driver.page_source)
-    def test3(self):
+    def testa(self):
         print('test3')
     def tearDown(self):
         self.driver.close()
