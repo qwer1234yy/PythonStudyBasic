@@ -1,12 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import time,SMART.Smart_common_settings as settings
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
+import SMART.Smart_com_acts as ACT
+from selenium.webdriver.common.by import By
+
+
 
 def go_to_report_ip_Enterprise(self,driver):
 
-    #Click "inpatient"
+    # Click "inpatient"
     inpatient = driver.find_element_by_id('aModuleSIP101')
     time.sleep(10)
     inpatient.click()
@@ -18,9 +18,10 @@ def go_to_report_ip_Enterprise(self,driver):
 
     # Click "Inpatient Enterprise Reports"
     enterprice_link = driver.find_element_by_xpath('//span[text()="Inpatient Enterprise Reports"]')
-    # enterprice_link = driver.find_element_by_id('aWorkplanNameMSShortName')
     enterprice_link.click()
-    time.sleep(settings.sleep)
+    # wait
+    spnSearch = driver.find_element_by_id('spnSearch')
+    ACT.wait_presence_element(driver,'spnSearch')
 
 
 def go_to_report_ip_Standard(self,driver):
