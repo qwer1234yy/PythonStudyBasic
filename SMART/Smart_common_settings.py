@@ -1,2 +1,2 @@
-sleep = 10
-login_sleep = 60
+sleep = 600
+login_sleep = 600

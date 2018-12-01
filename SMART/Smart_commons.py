@@ -18,25 +18,30 @@ def login_(driver):
     password_ele.send_keys('Admin')
     login_ele_btn.click()
     # wait for login completed
-    Act.wait_for_login(driver)
+    Act.wait_invisibility_of_element_located(driver)
+    Act.wait_presence_element(driver,'aModuleSIP101')
+    Act.wait_invisibility_of_element_located(driver)
+
+def read_custom_fields():
+    fields = open('custom_search_fields.txt', 'r')
+    lines = fields.readlines()
+    print(lines.__len__())
+    for line in lines:
+            print('----------' + line.strip() + '-------')
+    fields.close()
 
 
-def navigate_to_ip_report_enterprise(self,driver):
-    # navigate to IP report search page
-    driver.get(base_url.ip_report_url)
-    time.sleep(S_set.sleep)
-    # click "Inpatient Enterprise Reports" link
-    enterprice_link = driver.find_element_by_id('aWorkplanLink')
-    enterprice_link.click()
-    time.sleep(S_set.sleep)
+def read_file_as_list(file_name):
 
-
-def navigate_to_ip_report_standard(self,driver):
-    # navigate to IP report search page
-    driver.get(base_url.ip_report_url)
-    time.sleep(S_set.sleep)
-    # click "Inpatient Enterprise Reports" link
-    standard_link = driver.find_element_by_id('aWorkplanNameMS')
-    standard_link.click()
-    time.sleep(S_set)
+    print('read_as_list' + file_name)
+    fields_f = open(file_name, 'r')
+    lines = fields_f.readlines()
+    fields = []
+    print(lines.__len__())
+    for line in lines:
+        print(line.strip())
+        if not(line.strip().startswith('-')):
+         fields.append(line.strip())
+    fields_f.close()
+    return fields
 

@@ -1,0 +1,111 @@
+Patient Control No
+Med Rec No
+Disch Date
+Admit Date
+Admit Source - Facility
+Admit Source - UB
+Admit Type - Facility
+Admit Type - UB
+Base Revenue Amt
+Case Held From Billing
+Case State
+Case State - First Version
+Case Status
+Change Indicator
+Change Indicator Category
+Coder Group
+Coder ID
+Coding Date
+Current Case Version Number
+DRG CC Indicator
+DRG Code
+DRG Code – First Version
+DRG Relative Weight
+DRG ROM
+DRG SOI
+DRG Type
+Facility Name
+Facility State
+Financial Class
+Flag Category - Any
+Flag Category - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Grouper Version
+Has Query
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes – Other – First Version
+ICD Dx Codes - Principal
+ICD Dx Codes – Principal – First Version
+ICD DX Codes, Single CC
+ICD DX Codes, Single MCC
+ICD Dx ROM
+ICD Dx SOI
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Principal
+ICD Proc Codes - Principal - First Version
+Import Date
+Is DRG Reimb
+Is Locked
+Is On Evaluation
+Is On List
+Is Pending
+Is Reviewed
+Is Surgical DRG
+Is Surgical Procedure
+Locked By
+LOS Days
+Major Diagnostic Category
+Major Diagnostic Category - First Version
+Notes
+Optional Field 1
+Optional Field 2
+Outlier Revenue Amt
+PAC Transfer DRG
+Patient Age
+Patient Birthdate
+Patient Birthweight
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Sex
+Payer
+Physician - Attending
+Physician Group - Attending
+Physician - Procedure
+Physician Group - Procedure
+PPS Type
+POA Indicator
+Query Date
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Revenue Change
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer Group - Any
+Reviewer - First
+Reviewer Group - First
+Reviewer - Latest
+Reviewer Group - Latest
+Secondary DRG Code (APR-DRG)
+Secondary DRG Code (MS-DRG)
+Secondary DRG ROM
+Secondary DRG SOI
+Service
+Tag Group - Any
+Tag Group - Primary
+Tag Number - Any
+Tag Number - Any - First Version
+Tag Number - Primary
+Tag Number - Primary - First Version
+Total Charges

@@ -5,20 +5,6 @@ from selenium.webdriver.common.by import By
 import SMART.Smart_common_settings as settings
 
 
-def find_report_ip(self, driver, report_name):
-
-    txtSearch_report = driver.find_element_by_id('txtSearch')
-    txtSearch_report.clear()
-    txtSearch_report.click()
-    txtSearch_report.send_keys(report_name)
-
-    spnSearch_report = driver.find_element_by_id('spnSearch')
-    spnSearch_report.click()
-
-
-def report_result_find_text(self, report_name):
-    driver = webdriver.Firefox()
-    driver.find_element_by_xpath("//br[text()="+report_name+"]")
 
 
 def wait_for_login(driver):
@@ -30,10 +16,59 @@ def wait_for_login(driver):
      print('-----wait_for_login------')
 
 
-def wait_presence_element(driver, located_by):
+def wait_presence_element(driver, located_id):
     try:
         element = WebDriverWait(driver, settings.sleep).until(
-            EC.presence_of_element_located((By.ID,located_by))
+            EC.presence_of_element_located((By.ID, located_id))
         )
     finally:
         print('-----wait_presence_element------')
+
+def wait_element_clickable(driver, by_what, by_target):
+    print('wait_element_clickable')
+    try:
+        element = WebDriverWait(driver, settings.sleep).until(
+            EC.presence_of_element_located((by_what, by_target))
+        )
+    finally:
+        print('-----wait_element_clickable------')
+
+
+def wait_invisibility_of_element_located(driver):
+    WebDriverWait(driver,settings.login_sleep).until(EC.invisibility_of_element_located((By.XPATH,"//div[@class='modalOverlay']")))
+
+def wait_until_title_contains(driver, report):
+    WebDriverWait(driver, settings.login_sleep).until(EC.title_contains(report))
+
+def wait_presence_element_xpath(driver, xpath):
+    print('wait_presence_element_xpath----' + xpath)
+    try:
+        element = WebDriverWait(driver, settings.sleep).until(
+            EC.presence_of_element_located((By.XPATH, xpath))
+        )
+    finally:
+        print('-----wait_presence_element_xpath------')
+
+def wait_presence_element_class(driver, class_):
+    print('wait_presence_element_class----' + class_)
+    try:
+        element = WebDriverWait(driver, settings.sleep).until(
+            EC.presence_of_element_located((By.CLASS_NAME, class_))
+        )
+    finally:
+        print('-----wait_presence_element_xpath------')
+
+
+def wait_modal_overlay_element(driver, by_what, by_target):
+    try:
+
+        WebDriverWait(driver, settings.login_sleep).until(
+            EC.invisibility_of_element_located((By.XPATH, "//div[@class='modalOverlay']")))
+
+        WebDriverWait(driver, settings.sleep).until(
+            EC.presence_of_element_located((by_what, by_target))
+        )
+
+    finally:
+        print('-----wait_modalOverlay_element------')
+

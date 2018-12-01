@@ -1,1 +1,2 @@
 learn resources for python: http://www.liujiangblog.com
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyhook  ------pyHook download
