@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import SMART.Smart_common_settings as settings
+import time
 
 
 
@@ -14,6 +15,17 @@ def wait_for_login(driver):
         )
     finally:
      print('-----wait_for_login------')
+
+def wait_document_completed(driver):
+
+    for i in range(1,settings.sleep):
+        print(i)
+        print(driver.execute_script('return document.readyState'))
+        if('complete' == driver.execute_script('return document.readyState')):
+            print(driver.execute_script('return document.readyState'))
+            break
+        else:
+            time.sleep(1)
 
 
 def wait_presence_element(driver, located_id):

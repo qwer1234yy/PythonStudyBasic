@@ -40,6 +40,7 @@ def go_to_report_ip_Enterprise(driver):
 
 def go_to_report_ip_Standard(driver):
     # Click "inpatient"
+    ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
     inpatient = driver.find_element_by_id('aModuleSIP101')
     inpatient.click()
 
@@ -78,7 +79,43 @@ def report_result_find_text(driver,report_name):
     driver.find_element_by_xpath('//br[text()="'+report_name+'"]')
 
 
-def set_report_filters():
+def add_filters_besides_default_ones(driver):
+
+    # set up filters
+    add_icon = driver.find_element_by_id('btnInsertClause')
+    add_icon.click()
+
+    # add filters besides the default ones
+    driver.find_element_by_id('customsearch-grid-div')
+    fields = driver.find_elements_by_xpath(
+        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr')
+    fields_len = fields.__len__()
+    print('-----------fields_len = fields.__len__()-------------')
+    field_last = driver.find_element_by_xpath(
+        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]')
+    field_last.click()
+
+    fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][1]/div/ul/li')
+    print(fields_lis.__len__())
+    for li in fields_lis:
+        print(li.text)
+
+    # Case State - First Version DRG Type
+    # value
+    field_name = 'DRG Type'
+    field_name = driver.find_element_by_xpath(
+        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
+    field_name.click()
+
+    value_a = driver.find_element_by_xpath(
+        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
+    value_a.click()
+
+    ACT.wait_invisibility_of_element_located(driver)
+    ACT.wait_element_clickable(driver, By.XPATH, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+    value_select = driver.find_element_by_xpath(
+        '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+    value_select.click()
     print('-----------set_report_filters------------')
 
 def report_group_by():
@@ -97,11 +134,12 @@ def swiitch_to_report_view_page(driver, report):
     driver.switch_to.window(window1)
     print('------window1------')
     ACT.wait_until_title_contains(driver, report)
-    time.sleep(30)
     print(window1)
     print(driver.title)
     print('---wait_presence_element--------RW_ReportToolbar_ExportGr_FormatList_DropDownList----------')
-
+    print('-----driver.execute_script(document.redyState)--------')
+    print(driver.execute_script('return document.readyState'))
+    ACT.wait_document_completed(driver)
     # if report == 'Case Listing':
     #     ACT.wait_presence_element(driver, 'RdlViewer_ctl01_ctl05_ctl00')
     # else:

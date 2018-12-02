@@ -27,23 +27,8 @@ class MyTestCase(unittest.TestCase):
        # click "report name"
        IP_report.go_to_report_CS(driver, report)
 
-       #set up filters
-       add_icon = driver.find_element_by_id('btnInsertClause')
-       add_icon.click()
-
-       # get it
-       driver.find_element_by_id('customsearch-grid-div')
-       field_last = driver.find_element_by_xpath('.//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]')
-       field_last.click()
-
-       fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][1]/div/ul/li')
-       print(fields_lis.__len__())
-       for li in fields_lis:
-           print(li.text)
-
-       # k_input = driver.find_element_by_xpath('.//span[@class="k-input"]')
-       # k_input.send_keys('yangyang')
-       break
+       # add filters besides the default ones
+       IP_report.add_filters_besides_default_ones(driver)
 
        # Click "View report"
        IP_report.view_report_by_default_filters(driver)
@@ -51,6 +36,8 @@ class MyTestCase(unittest.TestCase):
        IP_report.swiitch_to_report_view_page(driver, report)
        # Export report
        # IP_report.export_report(driver, report)
+
+
 
        handles = driver.window_handles
        driver.close()
