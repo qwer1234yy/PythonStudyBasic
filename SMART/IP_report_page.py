@@ -1,15 +1,16 @@
 from selenium.webdriver.common.action_chains import ActionChains
 import SMART.Smart_com_acts as ACT
 from selenium.webdriver.common.by import By
-import time
+import time, os
 from pykeyboard import PyKeyboard
-from pymouse import *
+import SMART.Smart_commons as SC
 
 
 #click and enter a report
 def go_to_report_CS(driver, report_name):
 
-    Case_Listing_link = driver.find_element_by_link_text(report_name)
+    Case_Listing_link = driver.find_element_by_partial_link_text(report_name)
+
     print('---go_to_report_CS---double_click------')
     ActionChains(driver).double_click(Case_Listing_link).perform()
     ACT.wait_invisibility_of_element_located(driver)
@@ -100,22 +101,41 @@ def add_filters_besides_default_ones(driver):
     for li in fields_lis:
         print(li.text)
 
+
     # Case State - First Version DRG Type
     # value
+    # fields_names = SC.read_file_as_list('custom_search_fields.txt')
+    fields_names = ['DRG Type','Case State - First Version',
+                    'ICD Proc Codes - Principal - First Version','Major Diagnostic Category – First Version']
     field_name = 'DRG Type'
     field_name = driver.find_element_by_xpath(
         '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
     field_name.click()
 
-    value_a = driver.find_element_by_xpath(
-        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
-    value_a.click()
+    #operator
+    # operator
+    operator = driver.find_element_by_xpath(
+        '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]')
+    operator.click()
 
-    ACT.wait_invisibility_of_element_located(driver)
-    ACT.wait_element_clickable(driver, By.XPATH, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
-    value_select = driver.find_element_by_xpath(
-        '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
-    value_select.click()
+    operator_value = 'In'
+    operator_in = driver.find_element_by_xpath(
+        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+    operator_in.click()
+
+    value_input = driver.find_element_by_xpath(
+        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
+    value_input.send_keys('AP,APR,MC,MS')
+
+    # value_a = driver.find_element_by_xpath(
+    #     './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
+    # value_a.click()
+    #
+    # ACT.wait_invisibility_of_element_located(driver)
+    # ACT.wait_element_clickable(driver, By.XPATH, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+    # value_select = driver.find_element_by_xpath(
+    #     '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+    # value_select.click()
     print('-----------set_report_filters------------')
 
 def report_group_by():
@@ -127,9 +147,10 @@ def view_report_by_default_filters(driver):
     ACT.wait_element_clickable(driver, By.ID, 'btnViewReport')
     btnViewReport.click()
     ACT.wait_invisibility_of_element_located(driver)
+    time.sleep(1)
     print('--------view_report_by_default_filters------------')
 
-def swiitch_to_report_view_page(driver, report):
+def swiitch_to_report_view_page(driver, report, report_case):
     window1 = driver.window_handles[1]
     driver.switch_to.window(window1)
     print('------window1------')
@@ -147,7 +168,12 @@ def swiitch_to_report_view_page(driver, report):
 
     # take a screnshot
     print('---------take a screnshot-------------')
-    driver.save_screenshot('pictures/' + report + '.png')
+    test_case_number = 'TC '+report_case+'-'+report
+    picture_path = 'pictures/' + report + '.png'
+    SC.file_exists_delete(picture_path)
+    picture = driver.save_screenshot(picture_path)
+    SC.write_test_result_as_docx(picture_path, test_case_number)
+
 
     print('swiitch_to_report_view_page---------end')
 

@@ -84,3 +84,13 @@ def wait_modal_overlay_element(driver, by_what, by_target):
     finally:
         print('-----wait_modalOverlay_element------')
 
+def wait_new_window_is_opened(driver):
+    try:
+        WebDriverWait(driver, settings.sleep).until(
+            EC.new_window_is_opened(driver.current_window_handle)
+        )
+
+    finally:
+        print('-----wait_modalOverlay_element------')
+
+    print('-------wait_new_window_is_opened-------------')

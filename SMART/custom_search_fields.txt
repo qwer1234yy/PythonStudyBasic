@@ -6,7 +6,7 @@ Admit Source - Facility
 Admit Source - UB
 Admit Type - Facility
 Admit Type - UB
-Base Revenue Amt
+Base Revenue AmtMajor Diagnostic Category
 Case Held From Billing
 Case State
 Case State - First Version
