@@ -44,7 +44,7 @@ class MyTestCase(unittest.TestCase):
        IP_report.go_to_report_CS(driver, report)
 
        # add filters besides the default ones
-       IP_report.add_filters_besides_default_ones(driver)
+       IP_report.add_filters_besides_default_ones(driver,i)
 
        # operator
 
@@ -74,7 +74,7 @@ class MyTestCase(unittest.TestCase):
        # Click "View report"
        IP_report.view_report_by_default_filters(driver)
        # Go to report view page
-       IP_report.swiitch_to_report_view_page(driver, report, reports_keys[i])
+       IP_report.swiitch_to_report_view_page(driver, report, i)
        # Export report
        # IP_report.export_report(driver, report)
        handles = driver.window_handles

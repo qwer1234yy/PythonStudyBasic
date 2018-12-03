@@ -42,6 +42,7 @@ def go_to_report_ip_Enterprise(driver):
 def go_to_report_ip_Standard(driver):
     # Click "inpatient"
     ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
+    ACT.wait_invisibility_of_element_located(driver)
     inpatient = driver.find_element_by_id('aModuleSIP101')
     inpatient.click()
 
@@ -74,13 +75,14 @@ def find_report_ip(driver, report_name):
 
     spnSearch_report = driver.find_element_by_id('spnSearch')
     spnSearch_report.click()
+    ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
 
 
 def report_result_find_text(driver,report_name):
     driver.find_element_by_xpath('//br[text()="'+report_name+'"]')
 
 
-def add_filters_besides_default_ones(driver):
+def add_filters_besides_default_ones(driver, n):
 
     # set up filters
     add_icon = driver.find_element_by_id('btnInsertClause')
@@ -96,7 +98,8 @@ def add_filters_besides_default_ones(driver):
         './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]')
     field_last.click()
 
-    fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][1]/div/ul/li')
+
+    fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][last()]/div/ul/li')
     print(fields_lis.__len__())
     for li in fields_lis:
         print(li.text)
@@ -107,10 +110,27 @@ def add_filters_besides_default_ones(driver):
     # fields_names = SC.read_file_as_list('custom_search_fields.txt')
     fields_names = ['DRG Type','Case State - First Version',
                     'ICD Proc Codes - Principal - First Version','Major Diagnostic Category – First Version']
-    field_name = 'DRG Type'
-    field_name = driver.find_element_by_xpath(
+    print('------nnnnnnnnnnnnnnnnnnn----')
+    print(n)
+    if n % 4 == 1:
+        print(n % 4 == 1)
+        field_name = 'Major Diagnostic Category - First Version'
+    elif n % 4 == 2:
+        print('n % 4 == 2')
+        field_name = 'Case State - First Version'
+    elif n % 4 == 3:
+        print('n % 4 == 3')
+        field_name = 'ICD Proc Codes - Principal - First Version'
+    elif n % 4 == 0:
+        print('n % 4 == 0')
+        field_name = 'Case State - First Version'
+    field_name = 'ICD Proc Codes - Principal - First Version'
+    ACT.wait_presence_element_xpath(driver, '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
+    field_name_select = driver.find_element_by_xpath(
         '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
-    field_name.click()
+    field_name_select.click()
+    print('----------field_name-----------')
+    print(field_name)
 
     #operator
     # operator
@@ -118,21 +138,85 @@ def add_filters_besides_default_ones(driver):
         '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]')
     operator.click()
 
-    operator_value = 'In'
-    operator_in = driver.find_element_by_xpath(
-        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
-    operator_in.click()
+    if field_name == 'DRG Type':
+        operator_value = '= Equal'
+        operator_in = driver.find_element_by_xpath(
+            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_in.click()
+        # value_input = driver.find_element_by_xpath(
+        #     './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
+        # value_input.send_keys('AP,APR,MC,MS')
+        # print('-------send_keys-----------AP,APR,MC,MS-----')
+        value_a = driver.find_element_by_xpath('.//div[@id="customsearch-grid-div"]/div/div['
+                                               '@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
 
-    value_input = driver.find_element_by_xpath(
-        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
-    value_input.send_keys('AP,APR,MC,MS')
+        value_a.click()
+
+        ACT.wait_invisibility_of_element_located(driver)
+        ACT.wait_presence_element_xpath(driver, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        value_select.click()
+
+
+    elif field_name == 'Case State - First Version':
+        print('field_name == Case State - First Version')
+        operator_value = '<> Not Equal'
+        operator_in = driver.find_element_by_xpath(
+            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_in.click()
+        value_a = driver.find_element_by_xpath(
+            './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
+        value_a.click()
+
+        ACT.wait_invisibility_of_element_located(driver)
+        ACT.wait_presence_element_xpath(driver,'//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
+        value_select.click()
+    elif field_name == 'ICD Proc Codes - Principal - First Version':
+        operator_value = '>= Greater Than or Equal'
+        operator_GT = driver.find_element_by_xpath(
+            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_GT.click()
+        ACT.wait_presence_element_xpath(driver,'.//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
+        value_input = driver.find_element_by_xpath(
+            './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[6]/input')
+        # V15.82
+        value_input.send_keys('E08.10')
+        # ACT.wait_invisibility_of_element_located(driver)
+        # ACT.wait_element_clickable(driver, By.XPATH,
+        #                            '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        # value_select = driver.find_element_by_xpath(
+        #     '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
+        # value_select.click()
+    # field_name == 'Major Diagnostic Category - First Version'
+    elif field_name == 'Major Diagnostic Category - First Version':
+        print('999999999999999999999999999999999999999999999999999')
+        operator_value = '<> Not Equal'
+        operator_equal = driver.find_element_by_xpath(
+            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_equal.click()
+
+        #click search icon
+        value_a_xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a'
+        ACT.wait_element_clickable(driver, By.XPATH, value_a_xpath)
+        ACT.wait_presence_element_xpath(driver, value_a_xpath)
+        value_a = driver.find_element_by_xpath(value_a_xpath)
+        value_a.click()
+
+        ACT.wait_invisibility_of_element_located(driver)
+        ACT.wait_presence_element_xpath(driver,
+                                        '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
+        value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
+
+        value_select.click()
 
     # value_a = driver.find_element_by_xpath(
     #     './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
     # value_a.click()
     #
     # ACT.wait_invisibility_of_element_located(driver)
-    # ACT.wait_element_clickable(driver, By.XPATH, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+    # ACT.wait_presence_element_xpath(driver,
+    #                                 '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
     # value_select = driver.find_element_by_xpath(
     #     '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
     # value_select.click()
@@ -145,6 +229,7 @@ def view_report_by_default_filters(driver):
 
     btnViewReport = driver.find_element_by_id('btnViewReport')
     ACT.wait_element_clickable(driver, By.ID, 'btnViewReport')
+    ACT.wait_invisibility_of_element_located(driver)
     btnViewReport.click()
     ACT.wait_invisibility_of_element_located(driver)
     time.sleep(1)
@@ -168,7 +253,7 @@ def swiitch_to_report_view_page(driver, report, report_case):
 
     # take a screnshot
     print('---------take a screnshot-------------')
-    test_case_number = 'TC '+report_case+'-'+report
+    test_case_number = 'TC '+report_case.__str__()+'-'+report
     picture_path = 'pictures/' + report + '.png'
     SC.file_exists_delete(picture_path)
     picture = driver.save_screenshot(picture_path)

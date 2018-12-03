@@ -5,6 +5,7 @@ import SMART.Smart_com_acts as ACT
 from docx import Document
 from docx.shared import Inches
 import SMART.KeyboardKeys as KEY
+import win32com, win32api
 
 
 
@@ -100,14 +101,8 @@ class MyTestCase(unittest.TestCase):
         SC.write_test_result_as_docx(pictures,headings)
 
     def test_kayBoeard(self):
+        print('test')
 
-        VK_CODE = {
-            'enter': 0x0D,
-            'ctrl': 0x11,
-            'v': 0x56,
-            'shift': 0x10}
-        print(VK_CODE['enter'])
-        KEY.KeyboardKeys.keyDown(17)
 
 if __name__ == '__main__':
     unittest.main()
