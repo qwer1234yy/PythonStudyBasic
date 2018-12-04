@@ -2,17 +2,14 @@ import unittest
 import SMART.Smart_commons as SC
 from selenium import webdriver
 import SMART.IP_report_page as IP_report
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-import SMART.Smart_common_settings as settings
 import SMART.Smart_com_acts as ACT
-import pykeyboard, win32api, win32com
-import SMART.KeyboardKeys as KEY
+
 
 
 
 class MyTestCase(unittest.TestCase):
+
+
 
  def test_navigate_ip_report_cs(self):
     driver = webdriver.Firefox()
@@ -74,7 +71,7 @@ class MyTestCase(unittest.TestCase):
        # Click "View report"
        IP_report.view_report_by_default_filters(driver)
        # Go to report view page
-       IP_report.swiitch_to_report_view_page(driver, report, i)
+       IP_report.swiitch_to_report_view_page(driver, report, reports_keys[i])
        # Export report
        # IP_report.export_report(driver, report)
        handles = driver.window_handles
@@ -107,13 +104,13 @@ class MyTestCase(unittest.TestCase):
             IP_report.find_report_ip(driver, report)
          except:
             print('---try--except------' + report + '--not found-----')
-            continue
+
 
          # click "report name"
          IP_report.go_to_report_CS(driver, report)
 
          # add filters besides the default ones
-         IP_report.add_filters_besides_default_ones(driver)
+         IP_report.add_filters_besides_default_ones(driver,i)
 
          # Click "View report"
          IP_report.view_report_by_default_filters(driver)
@@ -129,6 +126,16 @@ class MyTestCase(unittest.TestCase):
          close = driver.find_element_by_xpath('//span[text()="close"]')
          close.click()
 
+ def tearDown(self):
+    print('tearDown')
+    # take a screnshot
+    # print('---------take a screnshot-------------')
+    # test_case_number = 'TC ' + str(report_case) + '-' + report
+    # picture_path = 'pictures/' + report + '.png'
+    # SC.file_exists_delete(picture_path)
+    # picture = driver.save_screenshot(picture_path)
+    # SC.write_test_result_as_docx(picture_path, test_case_number)
+    # self.widget.dispose()
 
  if __name__ == '__main__':
     unittest.main()

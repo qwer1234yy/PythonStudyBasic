@@ -114,20 +114,23 @@ def add_filters_besides_default_ones(driver, n):
     print(n)
     if n % 4 == 1:
         print(n % 4 == 1)
-        field_name = 'Major Diagnostic Category - First Version'
+        field_name = 'DRG Type'
     elif n % 4 == 2:
         print('n % 4 == 2')
         field_name = 'Case State - First Version'
-    elif n % 4 == 3:
-        print('n % 4 == 3')
-        field_name = 'ICD Proc Codes - Principal - First Version'
     elif n % 4 == 0:
         print('n % 4 == 0')
+        field_name = 'Major Diagnostic Category - First Version'
+    else:
+        print('n % 4 == 3')
         field_name = 'Case State - First Version'
-    field_name = 'ICD Proc Codes - Principal - First Version'
-    ACT.wait_presence_element_xpath(driver, '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
-    field_name_select = driver.find_element_by_xpath(
-        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]')
+
+
+    field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
+    print(field_xpath)
+    ACT.wait_presence_element_xpath(driver, field_xpath)
+    ACT.wait_element_clickable(driver, By.XPATH, field_xpath)
+    field_name_select = driver.find_element_by_xpath(field_xpath)
     field_name_select.click()
     print('----------field_name-----------')
     print(field_name)
@@ -238,8 +241,13 @@ def view_report_by_default_filters(driver):
 def swiitch_to_report_view_page(driver, report, report_case):
     window1 = driver.window_handles[1]
     driver.switch_to.window(window1)
-    print('------window1------')
-    ACT.wait_until_title_contains(driver, report)
+    print('------window1------' + report)
+    if report == 'DRG Change Condition Detail':
+        ACT.wait_until_title_contains(driver, 'DRG Change Detail')
+    elif report == 'Top 50 Diagnoses by Present on Admission(POA)':
+        ACT.wait_until_title_contains(driver, 'Top 50 Other Diagnoses by Present on Admission(POA)')
+    else:
+        ACT.wait_until_title_contains(driver, report)
     print(window1)
     print(driver.title)
     print('---wait_presence_element--------RW_ReportToolbar_ExportGr_FormatList_DropDownList----------')
@@ -253,8 +261,11 @@ def swiitch_to_report_view_page(driver, report, report_case):
 
     # take a screnshot
     print('---------take a screnshot-------------')
-    test_case_number = 'TC '+report_case.__str__()+'-'+report
-    picture_path = 'pictures/' + report + '.png'
+    test_case_number = 'TC '+str(report_case)+'-'+report
+    if report == 'Top 50 CC/MCC Diagnoses':
+        picture_path = 'pictures/Top 50 CC_MCC Diagnoses.png'
+    else:
+        picture_path = 'pictures/' + report + '.png'
     SC.file_exists_delete(picture_path)
     picture = driver.save_screenshot(picture_path)
     SC.write_test_result_as_docx(picture_path, test_case_number)

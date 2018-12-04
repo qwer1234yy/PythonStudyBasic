@@ -30,7 +30,7 @@ Case Mix Index (CMI) Comparison-IPEN-302161
 DRG Frequency-IPEN-302164
 Reimbursement Change Summary-IPEN-302165
 SMART Results Summary-IPEN-302173
-SMART Results Summary with CMI by Facility-IPEN-302173
+-SMART Results Summary with CMI by Facility-IPEN-302173-failed
 Flag Rate by Facility by Month-IPEN-302180
 Medicare HAC Potential Impact-IPEN-302235
 -PEPPER Report-IPEN-302236
@@ -42,7 +42,7 @@ Medicare Hospital-Acquired Conditions-IPST-302246
 SMART Reimbursement Activity-IPST-302248
 Medicare Post-Acute Care (PAC) Reimbursement Comparison-IPST-302249
 Medicare Post-Acute Care (PAC) DRG Frequency-IPST-302251
-Performance Metrics By Grouper Version-IPST-302255
+Performance Metrics-IPST-302255
 Present on Admission(POA) Comparison-IPST-302257
 Principal Procedures-IPST-302258
 Profile-IPST-302261
@@ -50,7 +50,7 @@ Readmissions-IPST-302264
 Case Status Reimbursement Detail-IPST-302265
 Grouper Version Reimbursement Detail-IPST-302269
 CMI Reimbursement Summary by Attending Physician-IPST-302270
-CMI Reimbursement Summary by Facility-IPEN-302271
+CMI Reimbursement Summary-IPEN-302271
 SMART Case Review Results*-IPEN-302272
 Case Status Reimbursement Summary-IPST-302273
 Reimbursement Change Summary-IPST-302274
