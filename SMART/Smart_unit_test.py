@@ -103,6 +103,24 @@ class MyTestCase(unittest.TestCase):
     def test_kayBoeard(self):
         print('test')
 
+    def test_compatibility(self):
+
+        reports_dic_standard_all = SC.read_file_as_list_report_US299725('standard')
+        reports_dic_enterprise_all = SC.read_file_as_list_report_US299725('enterprise')
+        print(reports_dic_standard_all.__len__())
+        print(reports_dic_enterprise_all.__len__())
+
+        reports_dic_standard_keys = list(reports_dic_standard_all.keys())
+        reports_dic_standard_values = list(reports_dic_standard_all.values())
+
+        reports_dic_standard = {}
+        for dic in range(reports_dic_standard_all.__len__()):
+
+            reports_dic_standard[reports_dic_standard_keys[dic]] = reports_dic_standard_values[dic]
+
+        for i in reports_dic_standard.items():
+            print(i)
+
 
 if __name__ == '__main__':
     unittest.main()

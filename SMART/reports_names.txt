@@ -22,7 +22,6 @@ DRG Contribution to CMI-IPST-302135
 DRG Frequency-IPST-302382
 DRG Illness Severity Score Comparison-IPST-302147
 DRG Summary by Grouper Version - MDC-IPST-302148
-DRG Illness Severity Score Comparison-IPST-302147
 DRG Illness Severity Score Comparison by Payer-IPEN-302147
 Medicare Post-Acute Care (PAC) DRG Frequency-IPEN-302158
 Frequency-IPEN-302160
@@ -51,7 +50,8 @@ Case Status Reimbursement Detail-IPST-302265
 Grouper Version Reimbursement Detail-IPST-302269
 CMI Reimbursement Summary by Attending Physician-IPST-302270
 CMI Reimbursement Summary-IPEN-302271
-SMART Case Review Results*-IPEN-302272
+SMART Case Review Results-IPEN-302272
+SMART Case Review Results-IPST-302272
 Case Status Reimbursement Summary-IPST-302273
 Reimbursement Change Summary-IPST-302274
 SMART Report Card-IPST-302402

@@ -3,6 +3,7 @@ import SMART.Smart_com_acts as Act
 from docx import Document
 from docx.shared import Inches
 import os
+from selenium.webdriver.common.by import By
 import SMART.Smart_common_settings as settings
 
 
@@ -21,8 +22,8 @@ def login_(driver):
     login_ele_btn.click()
     # wait for login completed
     Act.wait_invisibility_of_element_located(driver)
-    Act.wait_presence_element(driver,'aModuleSIP101')
-    Act.wait_invisibility_of_element_located(driver)
+    Act.wait_presence_element(driver, 'aModuleSIP101')
+    Act.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
 
 def read_custom_fields():
     fields = open('custom_search_fields.txt', 'r')

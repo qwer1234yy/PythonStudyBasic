@@ -1,22 +1,68 @@
-import unittest
+import unittest,os
 import SMART.Smart_commons as SC
 from selenium import webdriver
 import SMART.IP_report_page as IP_report
 import SMART.Smart_com_acts as ACT
+from selenium import webdriver
 
 
 
 
 class MyTestCase(unittest.TestCase):
 
+ def test_US299725_IE11(self):
+
+     # IE_path = r'C:\Program Files\Internet Explorer\ExtExport.exe'
+     # os.environ['webdriver.ie.driver'] = IE_path
+     # driver = webdriver.Ie(IE_path)
+     driver = webdriver.Ie()
 
 
- def test_navigate_ip_report_cs(self):
+     reports_dic_enterprise = SC.read_file_as_list_report_US299725('enterprise')
+     reports_values = list(reports_dic_enterprise.values())
+     reports_keys = list(reports_dic_enterprise.keys())
+     SC.login_(driver)
+     # go to report search page
+     # IP_report.go_to_report_ip_Enterprise(driver)
+     IP_report.go_to_report_ip_Enterprise(driver)
+
+     for i in range(10, 19):
+
+         report = reports_values[i]
+
+         # find "report name"
+         try:
+             IP_report.find_report_ip(driver, report)
+         except:
+             print('---try--except------' + report + '--not found-----')
+
+         # click "report name"
+         IP_report.go_to_report_CS(driver, report)
+
+         # add filters besides the default ones
+         IP_report.add_filters_besides_default_ones(driver, i)
+
+         # Click "View report"
+         IP_report.view_report_by_default_filters(driver)
+         # Go to report view page
+         IP_report.swiitch_to_report_view_page(driver, report, reports_keys[i])
+         # Export report
+         # IP_report.export_report(driver, report)
+         handles = driver.window_handles
+         driver.close()
+         driver.switch_to.window(handles[0])
+
+         ACT.wait_invisibility_of_element_located(driver)
+         close = driver.find_element_by_xpath('//span[text()="close"]')
+         close.click()
+
+ def test_navigate_ip_report_cs_firefox(self):
+
+     #activate a browser
     driver = webdriver.Firefox()
+    driver.maximize_window()
 
-    reports_dic_enterprise = SC.read_file_as_list_report_US299725('enterprise')
     reports_dic_standard = SC.read_file_as_list_report_US299725('standard')
-
     reports_values = list(reports_dic_standard.values())
     reports_keys = list(reports_dic_standard.keys())
 
@@ -25,10 +71,10 @@ class MyTestCase(unittest.TestCase):
     # IP_report.go_to_report_ip_Enterprise(driver)
     IP_report.go_to_report_ip_Standard(driver)
 
-    for i in range(0, reports_values.__len__()-1):
+    for i in range(0, reports_dic_standard.__len__()):
 
        report = reports_values[i]
-
+       report = 'Detailed Case Listing'
        # find "report name"
        try:
           IP_report.find_report_ip(driver, report)
@@ -82,20 +128,28 @@ class MyTestCase(unittest.TestCase):
        close = driver.find_element_by_xpath('//span[text()="close"]')
        close.click()
 
+ def test_US299725_enterprise_chrome(self):
 
- def test_US299725_enterprise(self):
+      # executable_path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+      # os.environ["webdriver.chrome.driver"] = executable_path
+      # options = webdriver.ChromeOptions()
+      # options.extensions.clear()
+      # driver = webdriver.Chrome(chrome_options=options)
+
 
       driver = webdriver.Firefox()
+
+      driver.maximize_window()
       reports_dic_enterprise = SC.read_file_as_list_report_US299725('enterprise')
       reports_values = list(reports_dic_enterprise.values())
       reports_keys = list(reports_dic_enterprise.keys())
-
       SC.login_(driver)
       # go to report search page
       # IP_report.go_to_report_ip_Enterprise(driver)
       IP_report.go_to_report_ip_Enterprise(driver)
 
-      for i in range(0, reports_dic_enterprise.__len__()):
+      ones = reports_dic_enterprise.__len__()
+      for i in range(0, ones):
 
          report = reports_values[i]
 
@@ -125,6 +179,7 @@ class MyTestCase(unittest.TestCase):
          ACT.wait_invisibility_of_element_located(driver)
          close = driver.find_element_by_xpath('//span[text()="close"]')
          close.click()
+
 
  def tearDown(self):
     print('tearDown')

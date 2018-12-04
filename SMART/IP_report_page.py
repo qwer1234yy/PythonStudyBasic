@@ -9,7 +9,10 @@ import SMART.Smart_commons as SC
 #click and enter a report
 def go_to_report_CS(driver, report_name):
 
-    Case_Listing_link = driver.find_element_by_partial_link_text(report_name)
+    if report_name == 'Frequency':
+        Case_Listing_link = driver.find_elements_by_link_text(report_name)[1]
+    else:
+        Case_Listing_link = driver.find_element_by_partial_link_text(report_name)
 
     print('---go_to_report_CS---double_click------')
     ActionChains(driver).double_click(Case_Listing_link).perform()
@@ -23,6 +26,8 @@ def go_to_report_CS(driver, report_name):
 def go_to_report_ip_Enterprise(driver):
 
     # Click "inpatient"
+    ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
+    ACT.wait_invisibility_of_element_located(driver)
     inpatient = driver.find_element_by_id('aModuleSIP101')
     inpatient.click()
 
@@ -85,6 +90,7 @@ def report_result_find_text(driver,report_name):
 def add_filters_besides_default_ones(driver, n):
 
     # set up filters
+    ACT.wait_element_clickable(driver, By.ID, 'btnInsertClause')
     add_icon = driver.find_element_by_id('btnInsertClause')
     add_icon.click()
 
@@ -146,19 +152,19 @@ def add_filters_besides_default_ones(driver, n):
         operator_in = driver.find_element_by_xpath(
             '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
         operator_in.click()
-        # value_input = driver.find_element_by_xpath(
-        #     './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
-        # value_input.send_keys('AP,APR,MC,MS')
-        # print('-------send_keys-----------AP,APR,MC,MS-----')
-        value_a = driver.find_element_by_xpath('.//div[@id="customsearch-grid-div"]/div/div['
-                                               '@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
-
-        value_a.click()
-
-        ACT.wait_invisibility_of_element_located(driver)
-        ACT.wait_presence_element_xpath(driver, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
-        value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
-        value_select.click()
+        value_input = driver.find_element_by_xpath(
+            './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/input')
+        value_input.send_keys('AP,APR,MC,MS')
+        print('-------send_keys-----------AP,APR,MC,MS-----')
+        # value_a = driver.find_element_by_xpath('.//div[@id="customsearch-grid-div"]/div/div['
+        #                                        '@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
+        #
+        # value_a.click()
+        #
+        # ACT.wait_invisibility_of_element_located(driver)
+        # ACT.wait_presence_element_xpath(driver, '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        # value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        # value_select.click()
 
 
     elif field_name == 'Case State - First Version':
