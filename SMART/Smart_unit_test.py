@@ -6,7 +6,11 @@ from docx import Document
 from docx.shared import Inches
 import SMART.KeyboardKeys as KEY
 import win32com, win32api
-
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from winreg import *
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class MyTestCase(unittest.TestCase):
@@ -120,6 +124,77 @@ class MyTestCase(unittest.TestCase):
 
         for i in reports_dic_standard.items():
             print(i)
+    def test_selenium_ie(self):
+
+        # try:
+        #     keyVal = r'Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1'
+        #     key = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS)
+        #     SetValueEx(key, "2500", 0, REG_DWORD, 0)
+        #     print("enabled protected mode")
+        # except Exception:
+        #     print("failed to enable protected mode")
+
+        caps = DesiredCapabilities.INTERNETEXPLORER
+        caps["platform"] = "WINDOWS"
+        caps["browserName"] = "internet explorer"
+        caps["requireWindowFocus"] = True
+        # IE_path = 'C:\Program Files\Internet Explorer\iexplore.exe'
+        # os.environ['webdriver.ie.driver'] = IE_path
+        # driver = webdriver.Ie(capabilities=caps,executable_path=IE_path)
+        driver = webdriver.Ie(capabilities=caps)
+        driver.get('https://www.baidu.com/')
+        ACT.wait_document_completed(driver)
+        time.sleep(10)
+        search_box = driver.find_element_by_id('kw')
+        search_box.send_keys('python')
+    def test_Chrome_options(self):
+        print('test_Chrome')
+        caps = DesiredCapabilities.CHROME
+
+        # chrome_options = Options()
+        # chrome_options.add_argument("--disable-extensions")
+        # driver = webdriver.Chrome(chrome_options=chrome_options)
+
+        # test-type no-sandbox disable-extensions start-maximized --js-flags=--expose-gc disable-plugins
+        # --enable-precise-memory-info --disable-popup-blocking --disable-default-apps test-type=browser disable-infobars
+        # chrome_options = webdriver.ChromeOptions()
+        # chrome_options.add_argument('--disable-extensions')
+        # chrome_options.add_argument('--no-sandbox')
+        # driver = webdriver.Chrome(chrome_options=chrome_options)
+
+        capabilities = {
+            'browserName': 'chrome',
+            'chromeOptions': {
+                'useAutomationExtension': False,
+                'forceDevToolsScreenshot': True,
+                'args': ['--start-maximized', '--disable-infobars']
+            }
+        }
+        driver = webdriver.Chrome(desired_capabilities=capabilities)
+
+        driver.get('http://strzw058051/SMARTSolutions/')
+    def test_chrome_taps(self):
+        print('test_chrome_taps')
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get("http://www.baidu.com/")
+
+        ActionChains(driver).key_down(Keys.CONTROL).send_keys('t').perform()
+
+        # open tab
+        # driver.actions().keyDown(Keys.CONTROL).sendKeys('t').perform()
+        driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
+        # You can use (Keys.CONTROL + 't') on other OSs
+
+        # Load a page
+        driver.get('http://stackoverflow.com/')
+        # Make the tests...
+
+        # close the tab
+        # (Keys.CONTROL + 'w') on other OSs.
+        # driver.actions().keyDown(Keys.CONTROL).sendKeys('w').perform()
+        driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 'w')
+
 
 
 if __name__ == '__main__':

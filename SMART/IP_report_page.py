@@ -10,7 +10,12 @@ import SMART.Smart_commons as SC
 def go_to_report_CS(driver, report_name):
 
     if report_name == 'Frequency':
-        Case_Listing_link = driver.find_elements_by_link_text(report_name)[1]
+
+        # Case_Listing_link = driver.find_elements_by_link_text(report_name)[1]
+        # Case_Listing_links = driver.find_elements_by_xpath("//a[text()="+report_name+"]")
+        # print(len(Case_Listing_links))
+        # Case_Listing_link = Case_Listing_links[1]
+        Case_Listing_link = driver.find_elements_by_partial_link_text(report_name)[3]
     else:
         Case_Listing_link = driver.find_element_by_partial_link_text(report_name)
 
@@ -25,11 +30,18 @@ def go_to_report_CS(driver, report_name):
 
 def go_to_report_ip_Enterprise(driver):
 
+    # work for firefox and chrome
     # Click "inpatient"
-    ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
+    # ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
+    # ACT.wait_invisibility_of_element_located(driver)
+    # inpatient = driver.find_element_by_id('aModuleSIP101')
+    # inpatient.click()
+    # for IE11
+    ACT.wait_element_clickable(driver, By.ID, 'aSlideMenuSelModuleSIP101')
     ACT.wait_invisibility_of_element_located(driver)
-    inpatient = driver.find_element_by_id('aModuleSIP101')
+    inpatient = driver.find_element_by_id('aSlideMenuSelModuleSIP101')
     inpatient.click()
+
 
     # Click "report"
     report = driver.find_element_by_id('aIPModuleWorkplans')
@@ -81,6 +93,7 @@ def find_report_ip(driver, report_name):
     spnSearch_report = driver.find_element_by_id('spnSearch')
     spnSearch_report.click()
     ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
+    time.sleep(1)
 
 
 def report_result_find_text(driver,report_name):
@@ -100,8 +113,10 @@ def add_filters_besides_default_ones(driver, n):
         './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr')
     fields_len = fields.__len__()
     print('-----------fields_len = fields.__len__()-------------')
+    print(fields_len)
+
     field_last = driver.find_element_by_xpath(
-        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]')
+        './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]/span')
     field_last.click()
 
 
@@ -130,7 +145,7 @@ def add_filters_besides_default_ones(driver, n):
     else:
         print('n % 4 == 3')
         field_name = 'Case State - First Version'
-
+    field_name = 'Case State - First Version'
 
     field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
     print(field_xpath)
@@ -144,11 +159,13 @@ def add_filters_besides_default_ones(driver, n):
     #operator
     # operator
     operator = driver.find_element_by_xpath(
-        '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]')
+        '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]/span')
     operator.click()
 
     if field_name == 'DRG Type':
-        operator_value = '= Equal'
+
+        operator_value = 'In'
+        ACT.wait_presence_element_xpath(driver, '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
         operator_in = driver.find_element_by_xpath(
             '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
         operator_in.click()
@@ -177,10 +194,36 @@ def add_filters_besides_default_ones(driver, n):
             './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a')
         value_a.click()
 
+
+
         ACT.wait_invisibility_of_element_located(driver)
-        ACT.wait_presence_element_xpath(driver,'//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
-        value_select = driver.find_element_by_xpath('//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
+        ACT.wait_presence_element_xpath(driver,'//div[@id="dvCSLookupPopup"]/div[@id="dvSearchLookupContent"]/div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]')
+        # for IE
+        # value_select_box = driver.find_element_by_id('ui-id-9')
+        # value_select_box.click()
+        #
+        # value_select_div = driver.find_element_by_id('dvCSLookupPopup')
+        # value_select_div.click()
+        # for IE
+        value_select_td = driver.find_elements_by_css_selector('td[role="gridcell"]')[0]
+        value_select_td.click()
+
+        value_select = driver.find_element_by_xpath('//div[@id="dvSearchLookupContent"]/div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[1]')
+        xpath = '//div[@id="dvSearchLookupContent"]/div[@id="dvLookupuGrid"]' \
+                '/div[@class="k-grid-content"]/table/tbody/tr[1]/td[1]'
+        print('---------value_select IE-----------')
         value_select.click()
+
+        # for IE11
+        value_select_xpath2 = './/td[text()="Flagged - Pending"]'
+        value_select_2 = driver.find_element_by_xpath(value_select_xpath2)
+        value_select_2.click()
+
+        # for IE11
+        btSelect = driver.find_element_by_id('btnSelect')
+        # driver.get("javascript:document.getElementById('btnSelect').click();")
+        btSelect.click()
+
     elif field_name == 'ICD Proc Codes - Principal - First Version':
         operator_value = '>= Greater Than or Equal'
         operator_GT = driver.find_element_by_xpath(
