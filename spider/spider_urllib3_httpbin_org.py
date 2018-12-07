@@ -4,8 +4,8 @@ import unittest, urllib3,json
 class MyTestCase(unittest.TestCase):
 
     url = "http://httpbin.org"
-    url_httpbin_org_spec_json = 'http://httpbin.org/spec.json'
-    partial_url_robots_txt = '/robots.txt'
+    url_spec_json = url + '/spec.json'
+    url_robots_txt = url + '/robots.txt'
     http = urllib3.PoolManager()
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
     cookies = '_gauges_unique_day=1; _gauges_unique_month=1; _gauges_unique_year=1; _gauges_unique=1; _gauges_unique_hour=1'
@@ -57,6 +57,7 @@ class MyTestCase(unittest.TestCase):
             for chunk in r.iter_content(chunk_size=1024):
                 f.write(chunk)
                 f.flush()
+
 
 if __name__ == '__main__':
     print('__name__ == __main__')
