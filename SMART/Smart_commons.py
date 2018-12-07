@@ -46,6 +46,15 @@ def read_file_as_list(file_name):
             fields.append(line)
     fields_f.close()
     return fields
+def go_to_MS_report(driver):
+    print(go_to_MS_report)
+    MS_access = driver.find_element_by_id('aSlideMenuSelModuleIP101')
+    MS_access.click()
+
+    MS_report_glossary_access = driver.find_element_by_id('aModuleReportGlossary')
+    MS_report_glossary_access.click()
+
+
 
 def read_file_as_list_report_US299725(enterprise_or_standard):
     file_name = 'reports_names.txt'
