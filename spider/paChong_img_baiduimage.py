@@ -1,6 +1,4 @@
 import unittest,requests,json,time
-from bs4 import BeautifulSoup
-
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
