@@ -29,7 +29,7 @@ class MyTestCase(unittest.TestCase):
         print(response.msg)
 
     def test_get_spec(self):
-        response = self.http.request(method='get', url=self.url_httpbin_org_spec_json, headers=self.headers)
+        response = self.http.request(method='get', url=self.url_spec_json, headers=self.headers)
         print(response.read())
         print(response.data)
         print(response.status)
