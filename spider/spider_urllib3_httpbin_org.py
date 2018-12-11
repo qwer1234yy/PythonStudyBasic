@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
     cookies = '_gauges_unique_day=1; _gauges_unique_month=1; _gauges_unique_year=1; _gauges_unique=1; _gauges_unique_hour=1'
     Accept = 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
     headers = {
-        'user_agent': user_agent,
+        'User_agent': user_agent,
         'Host': 'httpbin.org',
         'Cookie': cookies,
         'Accept': Accept,
