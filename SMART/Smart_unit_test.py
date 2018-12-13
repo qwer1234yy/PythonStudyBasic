@@ -15,6 +15,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class MyTestCase(unittest.TestCase):
 
+    def setUp(self):
+        print('setup')
+    def tearDown(self):
+        print('tearDown')
+
     def test_os(self):
         print('----------'+os.getcwd())
         exist = os._exists(os.getcwd() + '/Smart_commons/op_report_names_us300299.txt')
