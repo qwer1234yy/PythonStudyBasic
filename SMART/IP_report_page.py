@@ -205,8 +205,8 @@ def add_filters_besides_default_ones(driver, n):
         # value_select_div = driver.find_element_by_id('dvCSLookupPopup')
         # value_select_div.click()
         # for IE
-        value_select_td = driver.find_elements_by_css_selector('td[role="gridcell"]')[0]
-        value_select_td.click()
+        # value_select_td = driver.find_elements_by_css_selector('td[role="gridcell"]')[0]
+        # value_select_td.click()
 
         value_select = driver.find_element_by_xpath('//div[@id="dvSearchLookupContent"]/div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[1]')
         xpath = '//div[@id="dvSearchLookupContent"]/div[@id="dvLookupuGrid"]' \
@@ -215,14 +215,14 @@ def add_filters_besides_default_ones(driver, n):
         value_select.click()
 
         # for IE11
-        value_select_xpath2 = './/td[text()="Flagged - Pending"]'
-        value_select_2 = driver.find_element_by_xpath(value_select_xpath2)
-        value_select_2.click()
+        # value_select_xpath2 = './/td[text()="Flagged - Pending"]'
+        # value_select_2 = driver.find_element_by_xpath(value_select_xpath2)
+        # value_select_2.click()
 
-        # for IE11
-        btSelect = driver.find_element_by_id('btnSelect')
-        # driver.get("javascript:document.getElementById('btnSelect').click();")
-        btSelect.click()
+        # # for IE11
+        # btSelect = driver.find_element_by_id('btnSelect')
+        # # driver.get("javascript:document.getElementById('btnSelect').click();")
+        # btSelect.click()
 
     elif field_name == 'ICD Proc Codes - Principal - First Version':
         operator_value = '>= Greater Than or Equal'

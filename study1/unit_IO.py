@@ -10,6 +10,14 @@ class MyTestCase(unittest.TestCase):
         finally:
             if f:
               f.close()
+    def test_file_write(self):
+        try:
+            f = open('../SMART/Smart_commons/cs_operators.txt', 'a')
+            # f.writelines('testsetstst')
+            print(f.read(100))
+        finally:
+            if f:
+              f.close()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,30 @@
+APC Reimbursement Visit Summary-standard-303794
+Brief Visit Listing by Attending Physician-standard-303796
+CCI Flags by Body System-303797
+Detailed Visit Listing-standard-303798
+Discrepancy Analysis-standard-303799
+Evaluation & Management Clinical Profile-standard-303800
+Estimated Line Item Reimbursement Impact Summary-standard-303801
+Estimated Reimbursement Impact Summary-standard-303802
+Flag Comparison-standard-303803
+Flag Comparison-enterprise-303803
+Frequency-standard-303804
+Payer OCE Claim Disposition-standard-303805
+Medicare Medical Necessity Flags-standard-303806
+Medicare Medical Necessity Flags-enterprise-303806
+Profile-standard-303808
+Coder Profile-standard-303809
+-Coder Profile-enterprise-303809
+Query Activity Report-standard-303810
+Query Response Time-standard-303811
+Reimbursement Version Detail-standard-303812
+-Reimbursement Version Detail-enterprise-303812
+Review Worksheet-standard-303813
+Reimbursement Change Summary-standard-303814
+Reimbursement Change Summary-enterprise-303814
+SMART Reimbursement Activity by Year-standard-303815
+SMART Reimbursement Activity by Year-enterprise-303815
+Visit Change Results-standard-303816
+Visit Flag Summary-standard-303817
+Visits Processed on Import-standard-303818
+SMART Comprehensive Metrics Report-enterprise-303819

@@ -14,6 +14,28 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 class MyTestCase(unittest.TestCase):
+
+    def test_os(self):
+        print('----------'+os.getcwd())
+        exist = os._exists(os.getcwd() + '/Smart_commons/op_report_names_us300299.txt')
+        print(exist)
+
+
+
+    def test_test(self):
+        file_name = '../SMART/Smart_commons/op_report_names_us300299.txt'
+        print('read_as_list---' + file_name)
+        report_name_f = open(file_name, 'r')
+        lines = report_name_f.readlines()
+        for l in lines:
+            print(l)
+
+
+    def test_write_result(self):
+        # Flag Comparison.png
+        # 'Medicare Medical Necessity Flags.png'
+        SC.write_test_result_as_docx('pictures/1.PNG', 'TC 123232 -xxxxx')
+
     def test_wait(self):
         driver = webdriver.Firefox()
         SC.login_(driver)
@@ -195,6 +217,24 @@ class MyTestCase(unittest.TestCase):
         # driver.actions().keyDown(Keys.CONTROL).sendKeys('w').perform()
         driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 'w')
 
+
+    def test_read_file_report_names_as_list(self):
+        reports_name_cases = SC.read_file_report_names_as_list('enterprise')
+
+        report_names = []
+        report_case_num = []
+
+        for i in reports_name_cases:
+            report_names.append(reports_name_cases[i])
+            report_case_num.append(i)
+
+        print(report_names)
+        print(report_case_num)
+        #
+        # items = SC.read_file_report_names_as_list('standard')
+        # for i in items:
+        #     print(i)
+        #     print(items[i])
 
 
 if __name__ == '__main__':
