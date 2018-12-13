@@ -138,13 +138,13 @@ def read_file_as_list_report_US299725(enterprise_or_standard):
 
 def write_test_result_as_docx(report_name, test_case):
 
-    if os.path.exists('results/'+settings.test_result_file_name):
-        document = Document('results/'+settings.test_result_file_name)
+    if os.path.exists('../results/'+settings.test_result_file_name):
+        document = Document('../results/'+settings.test_result_file_name)
     else:
         document = Document()
     document.add_heading(test_case, level=1)
     document.add_picture(report_name, width=Inches(6.43))
-    document.save('results/'+settings.test_result_file_name)
+    document.save('../results/'+settings.test_result_file_name)
 
 
 def file_exists_delete(file_path):

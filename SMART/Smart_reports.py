@@ -190,6 +190,10 @@ class reports(object):
          ACT.wait_until_title_contains(driver, 'DRG Change Detail')
      elif report_name == 'Top 50 Diagnoses by Present on Admission(POA)':
          ACT.wait_until_title_contains(driver, 'Top 50 Other Diagnoses by Present on Admission(POA)')
+     elif report_name == 'Management Clinical Profile':
+         ACT.wait_until_title_contains(driver, 'Evaluation')
+     elif 'Frequency' in report_name:
+         ACT.wait_until_title_contains(driver, 'Frequency')
      else:
          ACT.wait_until_title_contains(driver, report_name)
      print(view_report_window)
