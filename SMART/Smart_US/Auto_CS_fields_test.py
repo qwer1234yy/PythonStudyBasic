@@ -18,88 +18,102 @@ class MyTestCase(unittest.TestCase):
 
     def test_enterprise_reports(self):
 
-        reports_name_cases = SC.read_file_report_names_as_list('enterprise')
-        report_names = []
-        report_case_num = []
-        for i in reports_name_cases:
-            report_names.append(reports_name_cases[i])
-            report_case_num.append(i)
+        field_list = []
+        field_dic = {}
+
+
         driver = self.driver
         SC.login_(driver)
-        reports.reports.go_to_op_enterprise(driver)
+        reports.reports.go_to_op_standard(driver)
 
         report_name = 'Visits Processed on Import'
 
         reports.reports.find_report(driver, report_name)
         reports.reports.go_to_report_CS(driver, report_name)
 
-
-
-
         # reports.reports.add_filters_besides_default_ones(driver)
         # set up filters
         ACT.wait_element_clickable(driver, By.ID, 'btnInsertClause')
-
         add_icon = driver.find_element_by_id('btnInsertClause')
         add_icon.click()
-
-        # add filters besides the default ones
-        # click 'Field' dropdown
         driver.find_element_by_id('customsearch-grid-div')
         field_last = driver.find_element_by_xpath(
             './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]/span')
         field_last.click()
 
-        # fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][last()]/div/ul/li')
-        # print(fields_lis.__len__())
-        # for li in fields_lis:
-        #     print(li.text)
-
         # cycle all the options under field dropdown
         field_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
         field_names = driver.find_elements_by_xpath(field_names_xpath)
+        print('----------------------------------------------------')
+        field_values = []
         for item in field_names:
             print(item.text)
+            field_values.append(item.text)
 
-        # select a field
-        field_name = 'ICD Dx Codes - Admit'
-        field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
-        print(field_xpath)
-        ACT.wait_presence_element_xpath(driver, field_xpath)
-        ACT.wait_element_clickable(driver, By.XPATH, field_xpath)
-        field_name_select = driver.find_element_by_xpath(field_xpath)
-        field_name_select.click()
-        print('----------field_name-----------')
-        print(field_name)
 
-        # operator
+        print('----------------------------------------------------')
+        for i in range(0,len(field_values)):
+            print('----------------------------------------------------')
+            print(i)
+            tools.spide_write_to_txt(field_values[i], '../Smart_commons/cs_fields.txt')
+            print(field_values[i])
+            field_dic['id'] = field_values[i]
 
-        # click "operator" button
-        operator = driver.find_element_by_xpath(
-            '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]/span')
-        operator.click()
+            if i == 0:
+                print(i)
+            else:
+                driver.find_element_by_id('customsearch-grid-div')
+                field_last = driver.find_element_by_xpath(
+                    '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]/span')
+                field_last.click()
 
-        # cycle all the options under ope dropdown
-        operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
-        operator_names = driver.find_elements_by_xpath(operator_names_xpath)
-        for item in field_names:
-            tools.spide_write_to_txt(item.text, '../Smart_commons/cs_operators.txt')
-            print(item.text)
+            field_name = field_values[i]
+            field_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
+            field_names = driver.find_elements_by_xpath(field_names_xpath)
 
-        # select operator_value  < Less Than In
-        operator_value = '<> Not Equal'
-        ACT.wait_presence_element_xpath(driver,
-                                        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
-        operator_in = driver.find_element_by_xpath(
-            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
-        operator_in.click()
+            for i in field_names:
+                print(i.text)
 
-        # click 'value' field
-        xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[6]/input'
-        value_input = driver.find_element_by_xpath(xpath)
-        value_input.click()
-        value_input.send_keys('434.91')
-        print('-------send_keys---------Z12.11--434.91-----')
+            field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
+            print(field_xpath)
+            ACT.wait_presence_element_xpath(driver, field_xpath)
+            ACT.wait_element_clickable(driver, By.XPATH, field_xpath)
+            field_name_select = driver.find_element_by_xpath(field_xpath)
+            field_name_select.click()
+
+            print('------click----field_name-----------'+field_name)
+
+            # operator
+            # click "operator" button
+            operator = driver.find_element_by_xpath(
+                '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]/span')
+            operator.click()
+            # cycle all the options under ope dropdown
+            operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
+            operator_names = driver.find_elements_by_xpath(operator_names_xpath)
+
+            operator_names[1].click()
+            operators = ''
+            for item in operator_names:
+                tools.spide_write_to_txt(item.text, '../Smart_commons/cs_operators.txt')
+                operators=operators+item.text+','
+                print(item.text)
+            field_dic['operators']=operators
+
+
+            # click 'value' field
+            xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[6]/input'
+            value_input = driver.find_element_by_xpath(xpath)
+            value_input_property = value_input.get_property('disabled')
+            print('----value_input_style-------')
+            print(value_input_property)
+            field_dic['type'] = 'input'
+            field_dic['default'] = 'default'
+
+            field_list.append(field_dic)
+        tools.write_dics_list_to_xml('Fields', 'Field', field_list, '../Smart_commons/cs_fields.xml')
+        for i in field_list:
+            print(i)
 
 
 
