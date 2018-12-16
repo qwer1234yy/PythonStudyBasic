@@ -1,4 +1,4 @@
-import unittest
+import unittest, time
 
 
 class MyTestCase(unittest.TestCase):
@@ -24,6 +24,24 @@ class MyTestCase(unittest.TestCase):
         print('jon原因'.encode())
         print(b'jon\xe5\x8e\x9f\xe5\x9b\xa0'.decode())
 
+    def test_list(self):
+         items=[]
+         take_time = time.time()
+         for i in range(10000000):
+             if i%2==0:
+                 items.append(i)
+         print('it takes: ')
+         print(time.time()-take_time)
+    def test_list_compare(self):
+
+         take_time = time.time()
+
+         items = [i for i in range(1000000) if i % 2 == 0]
+
+         print('it takes: ')
+         print(time.time()-take_time)
+
 
 if __name__ == '__main__':
+    print('nothing')
     unittest.main()
