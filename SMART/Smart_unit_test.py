@@ -11,6 +11,7 @@ from winreg import *
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+import SMART.Smart_tools.tools as tools
 
 
 class MyTestCase(unittest.TestCase):
@@ -19,6 +20,28 @@ class MyTestCase(unittest.TestCase):
         print('setup')
     def tearDown(self):
         print('tearDown')
+
+    def test_tools(self):
+        # tools.spide_write_to_txt('sssss','Smart_commons/cs_fields.txt')
+
+        field1 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
+        field2 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
+        field3 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
+        field4 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
+        field5 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
+
+        dics_list = [field1, field2, field3, field4, field5]
+        file_patt = 'Smart_commons/cs_fields.xml'
+        tools.write_dics_list_to_xml('Fields', 'Field', dics_list, file_patt)
+
+        person1 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
+        person2 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
+        person3 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
+        person4 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
+
+        person = [person1, person2, person3, person4]
+        person_file_patt = 'Smart_commons/person.xml'
+        tools.write_dics_list_to_xml('people','person',person, person_file_patt)
 
     def test_os(self):
         print('----------'+os.getcwd())
