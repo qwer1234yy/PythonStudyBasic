@@ -1,0 +1,544 @@
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Principal
+ICD Proc Codes - Principal - First Version
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Outlier Payment
+Patient Age
+Patient Birthdate
+Patient Control No
+Patient Sex
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Type - Facility
+Patient Type - PwC
+Payer - Primary
+Physician - Attending
+Physician - Other
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Record Type
+Release Action
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer - First
+Reviewer - Latest
+Service
+Start Date
+Value Code
+Value Code Amount
+Version
+Visit End Date
+Visit/Bill Adjusted Reimb
+Visit/Bill Level Flag
+Visit/Bill State
+Visit/Bill Total ChargesMed Rec No
+
+Med Rec No
+
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Primary
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Outlier Payment
+Patient Age
+Patient Birthdate
+Patient Control No
+Patient Sex
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Type - Facility
+Patient Type - PwC
+Payer - Primary
+Physician - Attending
+Physician - Other
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Record Type
+Release Action
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer - First
+Reviewer - Latest
+Service
+Start Date
+Value Code
+Value Code Amount
+Version
+Visit End Date
+Visit/Bill Adjusted Reimb
+Visit/Bill Level Flag
+Visit/Bill State
+Visit/Bill Total Charges
+Med Rec No
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Primary
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Outlier Payment
+Patient Age
+Patient Birthdate
+Patient Control No
+Patient Sex
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Type - Facility
+Patient Type - PwC
+Payer - Primary
+Physician - Attending
+Physician - Other
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Record Type
+Release Action
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer - First
+Reviewer - Latest
+Service
+Start Date
+Value Code
+Value Code Amount
+Version
+Visit End Date
+Visit/Bill Adjusted Reimb
+Visit/Bill Level Flag
+Visit/Bill State
+Visit/Bill Total Charges
+Med Rec No
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Primary
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Outlier Payment
+Patient Age
+Patient Birthdate
+Patient Control No
+Patient Sex
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Type - Facility
+Patient Type - PwC
+Payer - Primary
+Physician - Attending
+Physician - Other
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Record Type
+Release Action
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer - First
+Reviewer - Latest
+Service
+Start Date
+Value Code
+Value Code Amount
+Version
+Visit End Date
+Visit/Bill Adjusted Reimb
+Visit/Bill Level Flag
+Visit/Bill State
+Visit/Bill Total Charges
+Med Rec No
+Med Rec No
+Med Rec No
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Med Rec No
+Med Rec No
+Med Rec No
+Med Rec No
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Med Rec No
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Primary
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Outlier Payment
+Patient Age
+Patient Birthdate
+Patient Control No
+Patient Sex
+Patient D/C Status - Facility
+Patient D/C Status - UB
+Patient Type - Facility
+Patient Type - PwC
+Payer - Primary
+Physician - Attending
+Physician - Other
+RAC Focus
+Random Sample - Auto
+Random Sample - Size
+Record Type
+Release Action
+Review Date - Any
+Review Date - First
+Review Date - Latest
+Reviewer - Any
+Reviewer - First
+Reviewer - Latest
+Service
+Start Date
+Value Code
+Value Code Amount
+Version
+Visit End Date
+Visit/Bill Adjusted Reimb
+Visit/Bill Level Flag
+Visit/Bill State
+Visit/Bill Total Charges
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Line Item Rev Code - First Version
+Bill Date
+Bill Type
+Body System
+Change Indicator
+Change Indicator - Major
+Change Reason
+Coder Initials
+Coding Date
+Condition Code
+Co-Payment
+Financial Class - Primary
+Flag Group - Any
+Flag Group - Any - First Version
+Flag Group - Primary
+Flag Group - Primary - First Version
+Flag Number - Any
+Flag Number - Any - First Version
+Flag Number - Primary
+Flag Number - Primary - First Version
+Has Query
+Health Plan - Primary
+ICD Dx Codes - Admit
+ICD Dx Codes - Any
+ICD Dx Codes - Other
+ICD Dx Codes - Primary
+ICD Dx Codes - Visit Reason
+ICD Proc Codes - Any
+ICD Proc Codes - Other
+ICD Proc Codes - Primary
+Import Date
+Is On List
+Is Pending
+Is Reviewed
+Line Item Adjusted Reimb
+Line Item APC
+Line Item APC - First Version
+Line Item Charges
+Line Item CPT/HCPCS
+Line Item Date
+Line Item Department
+Line Item Flagged
+Line Item Flag Action
+Line Item Modifiers
+Line Item Rev Code
+Line Item Status Ind
+Line Item Units
+Notes
+Occurrence Code
+Occurrence From Date
+Occurrence Through Date
+Optional Field 1
+Optional Field 2
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
+Med Rec No
+Line Item CPT/HCPCS - First Version
