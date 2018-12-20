@@ -99,7 +99,7 @@ def read_file_report_names_as_list(enterprise_or_standard):
 
 
 def read_file_as_list_report_US299725(enterprise_or_standard):
-    file_name = 'reports_names.txt'
+    file_name = '../reports_names.txt'
     print('read_as_list' + file_name)
     fields_f = open(file_name, 'r')
     lines = fields_f.readlines()

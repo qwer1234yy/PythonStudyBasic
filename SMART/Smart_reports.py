@@ -169,7 +169,7 @@ class reports(object):
     value_input = driver.find_element_by_xpath(xpath)
     value_input.click()
     value_input.send_keys('434.91')
-    print('-------send_keys-----------434.91-----')
+    print('-------send_keysTest---------Z12.11--434.91-----')
 
  def view_report(driver):
      # click 'View Report' button

@@ -8,3 +8,7 @@ sibling: //td[.='LoadType']/following-sibling::td[1]/select"
 more complex: //td[contains(normalize-space(@class), 'actualcell sajcell-row-lines saj-special x-grid-row-collapsed')]
 
 p: parameter m: method v: variable f: function c: class
+
+msi: window系统安装文件
+zip: 压缩文件
+

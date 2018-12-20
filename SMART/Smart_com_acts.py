@@ -50,7 +50,13 @@ def wait_invisibility_of_element_located(driver):
     WebDriverWait(driver,settings.login_sleep).until(EC.invisibility_of_element_located((By.XPATH,"//div[@class='modalOverlay']")))
 
 def wait_until_title_contains(driver, report):
-    WebDriverWait(driver, settings.login_sleep).until(EC.title_contains(report))
+
+    try:
+        WebDriverWait(driver, settings.login_sleep).until(EC.title_contains(report))
+    except:
+        print('---try--except------' + report + '-title-not found--in view report page---')
+        # continue
+
 
 def wait_presence_element_xpath(driver, xpath):
     print('wait_presence_element_xpath----' + xpath)

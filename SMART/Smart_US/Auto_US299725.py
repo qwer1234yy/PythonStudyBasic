@@ -193,7 +193,7 @@ class MyTestCase(unittest.TestCase):
       # IP_report.go_to_report_ip_Enterprise(driver)
       # driver.maximize_window()
 
-      reports_dic_standard = SC.read_file_as_list_report_US299725('standard')
+      reports_dic_standard = SC.read_file_as_list_report_US299725('enterprise')
       reports_values = list(reports_dic_standard.values())
       reports_keys = list(reports_dic_standard.keys())
 
@@ -225,11 +225,11 @@ class MyTestCase(unittest.TestCase):
          driver = webdriver.Chrome(desired_capabilities=capabilities)
          SC.login_(driver)
          # go to report search page
-         IP_report.go_to_report_ip_Standard(driver)
-         # IP_report.go_to_report_ip_Enterprise(driver)
+         # IP_report.go_to_report_ip_Standard(driver)
+         IP_report.go_to_report_ip_Enterprise(driver)
 
          report = reports_values[i]
-         report = 'Medicare HAC Potential Impact'
+         # report = 'Medicare HAC Potential Impact'/
          # report = 'Frequency'
          # find "report name"
          try:

@@ -1,15 +1,15 @@
-Data Comparison-IPST-302369
+-Data Comparison-IPST-302369
 -PEPPER Report
 -Attending Physician Frequency by DRG*-IPST
-Case Change Results-IPST-302415
-Case Listing-IPST-302075
-Case Version Comparison-IPST-302088
--Case-Mix by Payer by Month-IPST-302363-timeout
--Medicare Case-Mix by Month-IPST-302090-timeout
+-Case Change Results-IPST-302415
+-Case Listing-IPST-302075
+-Case Version Comparison-IPST-302088
+-Case-Mix by Payer by Month-IPST-302363
+-Medicare Case-Mix by Month-IPST-302090
 Cases Processed on Import-IPST-302091
-Case Mix Index (CMI) Comparison-IPST-302093
+-Case Mix Index (CMI) Comparison-IPST-302093
 Case Mix Index (CMI) Analysis-IPST-302244
-Detailed Case Listing-IPST-302095
+-Detailed Case Listing-IPST-302095
 Diagnosis Code Usage-IPST-302108
 Discharges by Grouper Version - DRG-IPST-302109
 Coding-DRG Accuracy Analysis-IPST-302110
@@ -60,4 +60,4 @@ Summary by Primary Flag with Revision Information-IPEN-302277
 Summary by Primary Flag-IPST-302278
 Top 50 CC/MCC Diagnoses-IPEN-302280
 Top 50 Diagnoses by Present on Admission(POA)-IPST-302282
-DRG Listing by Payer-IPST-302284
+-DRG Listing by Payer-IPST-302284

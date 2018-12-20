@@ -92,7 +92,11 @@ def find_report_ip(driver, report_name):
 
     spnSearch_report = driver.find_element_by_id('spnSearch')
     spnSearch_report.click()
-    ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
+    try:
+     ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
+    except:
+     spnSearch_report.click()
+     ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
     time.sleep(1)
 
 
@@ -136,16 +140,18 @@ def add_filters_besides_default_ones(driver, n):
     if n % 4 == 1:
         print(n % 4 == 1)
         field_name = 'DRG Type'
+        field_name = 'ICD Proc Codes - Any'
     elif n % 4 == 2:
         print('n % 4 == 2')
-        field_name = 'Case State - First Version'
+        # field_name = 'Case State - First Version'
+        field_name = 'ICD Proc Codes - Other'
     elif n % 4 == 0:
         print('n % 4 == 0')
-        field_name = 'Major Diagnostic Category - First Version'
+        # field_name = 'Major Diagnostic Category - First Version'
+        field_name = 'ICD Proc Codes - Principal'
     else:
         print('n % 4 == 3')
-        field_name = 'Case State - First Version'
-    field_name = 'Case State - First Version'
+        field_name = 'ICD Proc Codes - Principal - First Version'
 
     field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
     print(field_xpath)
@@ -224,8 +230,16 @@ def add_filters_besides_default_ones(driver, n):
         # # driver.get("javascript:document.getElementById('btnSelect').click();")
         # btSelect.click()
 
-    elif field_name == 'ICD Proc Codes - Principal - First Version':
-        operator_value = '>= Greater Than or Equal'
+    # elif field_name == 'ICD Proc Codes - Principal - First Version':
+    elif 'ICD Proc Codes' in field_name:
+
+        # cycle all the options under ope dropdown
+        operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
+        operator_names = driver.find_elements_by_xpath(operator_names_xpath)
+        for item in operator_names:
+            print(item.text)
+        # <> Not Equal >= Greater Than or Equal
+        operator_value = '<> Not Equal'
         operator_GT = driver.find_element_by_xpath(
             '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
         operator_GT.click()
@@ -312,9 +326,9 @@ def swiitch_to_report_view_page(driver, report, report_case):
     print('---------take a screnshot-------------')
     test_case_number = 'TC '+str(report_case)+'-'+report
     if report == 'Top 50 CC/MCC Diagnoses':
-        picture_path = 'pictures/Top 50 CC_MCC Diagnoses.png'
+        picture_path = '../pictures/Top 50 CC_MCC Diagnoses.png'
     else:
-        picture_path = 'pictures/' + report + '.png'
+        picture_path = '../pictures/' + report + '.png'
     SC.file_exists_delete(picture_path)
     picture = driver.save_screenshot(picture_path)
     SC.write_test_result_as_docx(picture_path, test_case_number)
