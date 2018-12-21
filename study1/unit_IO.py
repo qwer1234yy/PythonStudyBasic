@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
               f.close()
     def test_file_write(self):
         try:
-            f = open('../SMART/Smart_commons/cs_operators.txt', 'a')
+            f = open('../SMART/Smart_resources/cs_operators.txt', 'a')
             # f.writelines('testsetstst')
             print(f.read(100))
         finally:

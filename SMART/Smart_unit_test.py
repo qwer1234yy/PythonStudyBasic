@@ -22,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         print('tearDown')
 
     def test_tools(self):
-        # tools.spide_write_to_txt('sssss','Smart_commons/cs_fields.txt')
+        # tools.spide_write_to_txt('sssss','Smart_resources/cs_fields.txt')
 
         field1 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
         field2 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
         field5 = {'id': '12213', 'operators': 'ewe', 'type': 'wwe', 'default': 'wewewe'}
 
         dics_list = [field1, field2, field3, field4, field5]
-        file_patt = 'Smart_commons/cs_fields.xml'
+        file_patt = 'Smart_resources/cs_fields.xml'
         tools.write_dics_list_to_xml('Fields', 'Field', dics_list, file_patt)
 
         person1 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
@@ -40,18 +40,18 @@ class MyTestCase(unittest.TestCase):
         person4 = {'name': 'Jon', 'gender': 'man', 'id':'JOn'}
 
         person = [person1, person2, person3, person4]
-        person_file_patt = 'Smart_commons/person.xml'
+        person_file_patt = 'Smart_resources/person.xml'
         tools.write_dics_list_to_xml('people','person',person, person_file_patt)
 
     def test_os(self):
         print('----------'+os.getcwd())
-        exist = os._exists(os.getcwd() + '/Smart_commons/op_report_names_us300299.txt')
+        exist = os._exists(os.getcwd() + '/Smart_resources/op_report_names_us300299.txt')
         print(exist)
 
 
 
     def test_test(self):
-        file_name = '../SMART/Smart_commons/op_report_names_us300299.txt'
+        file_name = '../SMART/Smart_resources/op_report_names_us300299.txt'
         print('read_as_list---' + file_name)
         report_name_f = open(file_name, 'r')
         lines = report_name_f.readlines()

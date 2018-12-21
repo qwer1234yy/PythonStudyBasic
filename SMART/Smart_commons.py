@@ -60,7 +60,7 @@ def go_to_MS_report(driver):
 
 
 def read_file_report_names_as_list(enterprise_or_standard):
-    file_name = '../Smart_commons/op_report_names_us300299.txt'
+    file_name = '../Smart_resources/op_report_names_us300299.txt'
     print(os.getcwd())
     print('read_as_list---' + file_name)
     report_name_f = open(file_name, 'r')
@@ -146,6 +146,16 @@ def write_test_result_as_docx(report_name, test_case):
     document.add_picture(report_name, width=Inches(6.43))
     document.save('../results/'+settings.test_result_file_name)
 
+
+def write_test_result_as_docx_com(screenshot_path, heading_value):
+
+    if os.path.exists('../results/'+settings.test_result_file_name):
+        document = Document('../results/'+settings.test_result_file_name)
+    else:
+        document = Document()
+    document.add_heading(heading_value, level=1)
+    document.add_picture(screenshot_path, width=Inches(6.43))
+    document.save('../results/'+settings.test_result_file_name)
 
 def file_exists_delete(file_path):
     if os.path.exists(file_path):

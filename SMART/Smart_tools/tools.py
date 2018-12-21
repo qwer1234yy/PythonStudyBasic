@@ -4,7 +4,7 @@ import os
 
 def spide_write_to_txt(s, file_path):
     try:
-        # '../Smart_commons/cs_operators.txt'
+        # '../Smart_resources/cs_operators.txt'
         f = open(file_path, 'a')
         f.writelines(s)
         f.write('\n')

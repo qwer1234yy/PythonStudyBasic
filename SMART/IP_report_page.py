@@ -78,7 +78,6 @@ def go_to_report_ip_Standard(driver):
 def find_report_ip(driver, report_name):
 
     ACT.wait_presence_element(driver,'spnSearch')
-    #ACT.wait_invisibility_of_element_located(driver)
 
     ACT.wait_modal_overlay_element(driver, By.ID, 'txtSearch')
     txtSearch_report = driver.find_element_by_id('txtSearch')
@@ -93,10 +92,10 @@ def find_report_ip(driver, report_name):
     spnSearch_report = driver.find_element_by_id('spnSearch')
     spnSearch_report.click()
     try:
-     ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
+        ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
     except:
-     spnSearch_report.click()
-     ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
+        spnSearch_report.click()
+        ACT.wait_element_clickable(driver, By.PARTIAL_LINK_TEXT, report_name)
     time.sleep(1)
 
 
@@ -123,35 +122,26 @@ def add_filters_besides_default_ones(driver, n):
         './/div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[3]/span')
     field_last.click()
 
-
     fields_lis = driver.find_elements_by_xpath('//div[@class="k-animation-container"][last()]/div/ul/li')
     print(fields_lis.__len__())
     for li in fields_lis:
         print(li.text)
 
-
-    # Case State - First Version DRG Type
-    # value
-    # fields_names = SC.read_file_as_list('custom_search_fields.txt')
-    fields_names = ['DRG Type','Case State - First Version',
-                    'ICD Proc Codes - Principal - First Version','Major Diagnostic Category – First Version']
-    print('------nnnnnnnnnnnnnnnnnnn----')
-    print(n)
-    if n % 4 == 1:
-        print(n % 4 == 1)
-        field_name = 'DRG Type'
+    iter_n = 7
+    if n % iter_n == 0:
+        field_name = 'ICD Dx Codes - Any'
+    elif n % iter_n == 1:
+        field_name = 'ICD Dx Codes - Other'
+    elif n % iter_n == 2:
+        field_name = 'ICD Dx Codes - Principal'
+    elif n % iter_n == 3:
         field_name = 'ICD Proc Codes - Any'
-    elif n % 4 == 2:
-        print('n % 4 == 2')
-        # field_name = 'Case State - First Version'
+    elif n % iter_n == 4:
         field_name = 'ICD Proc Codes - Other'
-    elif n % 4 == 0:
-        print('n % 4 == 0')
-        # field_name = 'Major Diagnostic Category - First Version'
-        field_name = 'ICD Proc Codes - Principal'
-    else:
-        print('n % 4 == 3')
+    elif n % iter_n == 5:
         field_name = 'ICD Proc Codes - Principal - First Version'
+    else:
+        field_name = 'ICD Proc Codes - Principal'
 
     field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
     print(field_xpath)
@@ -159,11 +149,8 @@ def add_filters_besides_default_ones(driver, n):
     ACT.wait_element_clickable(driver, By.XPATH, field_xpath)
     field_name_select = driver.find_element_by_xpath(field_xpath)
     field_name_select.click()
-    print('----------field_name-----------')
-    print(field_name)
 
     #operator
-    # operator
     operator = driver.find_element_by_xpath(
         '//div[@id="customsearch-grid-div"]/div/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[4]/span')
     operator.click()
@@ -232,7 +219,7 @@ def add_filters_besides_default_ones(driver, n):
 
     # elif field_name == 'ICD Proc Codes - Principal - First Version':
     elif 'ICD Proc Codes' in field_name:
-
+        print('*********'+field_name+'**********')
         # cycle all the options under ope dropdown
         operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
         operator_names = driver.find_elements_by_xpath(operator_names_xpath)
@@ -255,6 +242,30 @@ def add_filters_besides_default_ones(driver, n):
         #     '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
         # value_select.click()
     # field_name == 'Major Diagnostic Category - First Version'
+    elif 'ICD Dx Codes' in field_name:
+
+        # operator
+        # cycle all the options under ope dropdown
+        operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
+        operator_names = driver.find_elements_by_xpath(operator_names_xpath)
+        for item in operator_names:
+            print(item.text)
+
+        # select operator_value  < Less Than In
+        operator_value = '<> Not Equal'
+        ACT.wait_presence_element_xpath(driver,
+                                        '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_name = driver.find_element_by_xpath(
+            '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + operator_value + '"]')
+        operator_name.click()
+
+        # click 'value' field
+        xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[6]/input'
+        value_input = driver.find_element_by_xpath(xpath)
+        value_input.click()
+        value_input.send_keys('434.91')
+        print('-------send_keysTest---------Z12.11--434.91-----')
+
     elif field_name == 'Major Diagnostic Category - First Version':
         print('999999999999999999999999999999999999999999999999999')
         operator_value = '<> Not Equal'

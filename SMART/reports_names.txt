@@ -6,38 +6,38 @@
 -Case Version Comparison-IPST-302088
 -Case-Mix by Payer by Month-IPST-302363
 -Medicare Case-Mix by Month-IPST-302090
-Cases Processed on Import-IPST-302091
+-Cases Processed on Import-IPST-302091
 -Case Mix Index (CMI) Comparison-IPST-302093
-Case Mix Index (CMI) Analysis-IPST-302244
+-Case Mix Index (CMI) Analysis-IPST-302244
 -Detailed Case Listing-IPST-302095
-Diagnosis Code Usage-IPST-302108
-Discharges by Grouper Version - DRG-IPST-302109
-Coding-DRG Accuracy Analysis-IPST-302110
-Coding-DRG Review Summary-IPST-302111
-DRG Change Condition Detail-IPST-302113
-DRG Change Impact-IPST-302128
-DRG Clinical Profile-IPST-302134
-DRG Contribution to CMI-IPST-302135
+-Diagnosis Code Usage-IPST-302108
+-Discharges by Grouper Version - DRG-IPST-302109
+-Coding-DRG Accuracy Analysis-IPST-302110
+-Coding-DRG Review Summary-IPST-302111
+-DRG Change Condition Detail-IPST-302113
+-DRG Change Impact-IPST-302128
+-DRG Clinical Profile-IPST-302134
+-DRG Contribution to CMI-IPST-302135
 -DRG Contribution to Payer CMI-IPST-302381
-DRG Frequency-IPST-302382
-DRG Illness Severity Score Comparison-IPST-302147
-DRG Summary by Grouper Version - MDC-IPST-302148
-DRG Illness Severity Score Comparison by Payer-IPEN-302147
-Medicare Post-Acute Care (PAC) DRG Frequency-IPEN-302158
-Frequency-IPEN-302160
-Case Mix Index (CMI) Comparison-IPEN-302161
-DRG Frequency-IPEN-302164
-Reimbursement Change Summary-IPEN-302165
-SMART Results Summary-IPEN-302173
+-DRG Frequency-IPST-302382
+-DRG Illness Severity Score Comparison-IPST-302147
+-DRG Summary by Grouper Version - MDC-IPST-302148
+-DRG Illness Severity Score Comparison by Payer-IPEN-302147
+-Medicare Post-Acute Care (PAC) DRG Frequency-IPEN-302158
+-Frequency-IPEN-302160
+-Case Mix Index (CMI) Comparison-IPEN-302161
+-DRG Frequency-IPEN-302164
+-Reimbursement Change Summary-IPEN-302165
+-SMART Results Summary-IPEN-302173
 -SMART Results Summary with CMI by Facility-IPEN-302173-failed
-Flag Rate by Facility by Month-IPEN-302180
-Medicare HAC Potential Impact-IPEN-302235
+-Flag Rate by Facility by Month-IPEN-302180
+-Medicare HAC Potential Impact-IPEN-302235
 -PEPPER Report-IPEN-302236
-Average Length of Stay by Payer by Month-IPST-302237
-Illness Severity Score by Payer by Month-IPST-302238
-Diagnosis Analysis by Present on Admission(POA)-IPST-302239
-Medicare Case-Mix by Month-IPST-302244
-Medicare Hospital-Acquired Conditions-IPST-302246
+-Average Length of Stay by Payer by Month-IPST-302237
+-Illness Severity Score by Payer by Month-IPST-302238
+-Diagnosis Analysis by Present on Admission(POA)-IPST-302239
+-Medicare Case-Mix by Month-IPST-302244
+-Medicare Hospital-Acquired Conditions-IPST-302246
 SMART Reimbursement Activity-IPST-302248
 Medicare Post-Acute Care (PAC) Reimbursement Comparison-IPST-302249
 Medicare Post-Acute Care (PAC) DRG Frequency-IPST-302251

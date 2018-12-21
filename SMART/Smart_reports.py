@@ -154,7 +154,7 @@ class reports(object):
     operator_names_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li'
     operator_names = driver.find_elements_by_xpath(operator_names_xpath)
     for item in field_names:
-        tools.spide_write_to_txt(item.text, '../Smart_commons/cs_operators.txt')
+        tools.spide_write_to_txt(item.text, '../Smart_resources/cs_operators.txt')
         print(item.text)
 
     # select operator_value  < Less Than In

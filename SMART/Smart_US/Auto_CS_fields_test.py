@@ -55,7 +55,7 @@ class MyTestCase(unittest.TestCase):
         for i in range(0,len(field_values)):
             print('----------------------------------------------------')
             print(i)
-            tools.spide_write_to_txt(field_values[i], '../Smart_commons/cs_fields.txt')
+            tools.spide_write_to_txt(field_values[i], '../Smart_resources/cs_fields.txt')
             print(field_values[i])
             field_dic['id'] = field_values[i]
 
@@ -95,7 +95,7 @@ class MyTestCase(unittest.TestCase):
             operator_names[1].click()
             operators = ''
             for item in operator_names:
-                tools.spide_write_to_txt(item.text, '../Smart_commons/cs_operators.txt')
+                tools.spide_write_to_txt(item.text, '../Smart_resources/cs_operators.txt')
                 operators=operators+item.text+','
                 print(item.text)
             field_dic['operators']=operators
@@ -111,7 +111,7 @@ class MyTestCase(unittest.TestCase):
             field_dic['default'] = 'default'
 
             field_list.append(field_dic)
-        tools.write_dics_list_to_xml('Fields', 'Field', field_list, '../Smart_commons/cs_fields.xml')
+        tools.write_dics_list_to_xml('Fields', 'Field', field_list, '../Smart_resources/cs_fields.xml')
         for i in field_list:
             print(i)
 
