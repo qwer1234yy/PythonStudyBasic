@@ -11,4 +11,7 @@ p: parameter m: method v: variable f: function c: class
 
 msi: window系统安装文件
 zip: 压缩文件
+ctr + alt + l: 格式化文件， 规范化
+pip3 install lxml-4.2.1-cp36-cp36m-win_amd64.whl
+lxml practice: https://www.cnblogs.com/zhangxinqi/p/9210211.html
 

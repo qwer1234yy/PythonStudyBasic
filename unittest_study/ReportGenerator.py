@@ -38,8 +38,8 @@ class ReportGenerator(object):
 
     # If there is no "TestResult.html" file exists, then create one with default style
     def CreateHtmlFile(self):
-        if os.path.exists("TestResult.html") == False:
-            f = open("TestResult.html", 'w')
+        if os.path.exists("TestResult2.html") == False:
+            f = open("TestResult2.html", 'w')
             message = """<html>
             <head>    
                 <title>Automation Test Result</title>
@@ -67,8 +67,23 @@ class ReportGenerator(object):
                     } 
                 </style>
             </head>
-            <body>
-                <h1>Automation Test Result</h1>
+            <body>                
+                <div class='heading'>
+                    <h1>Automation Test Result</h1>
+                    <p class='attribute' id='start_time'><strong>Start Time:</strong> </p>
+                    <p class='attribute'id='duration'><strong>Duration:</strong> </p>
+                    <p class='attribute'id='total_case'><strong>Total:</strong> </p>
+                    <p class='attribute'id='pass'><strong>PASS:</strong> </p>
+                    <p class='attribute'id='fail'><strong>FAIL:</strong> </p>
+                    <p class='description'id='task_description'><strong>task_description:</strong></p>
+                </div>
+
+                <p id='show_detail_line'>Show
+                    <a href='javascript:showCase(0)'>Summary</a>
+                    <a href='javascript:showCase(1)'>Failed</a>
+                    <a href='javascript:showCase(2)'>All</a>
+                </p>
+                
                 <table>
                     <tr>
                         <th>ID</th>
@@ -91,11 +106,18 @@ class ReportGenerator(object):
 
         self.CreateHtmlFile()
 
-        f = open("TestResult.html", "r")
+        f = open("TestResult2.html", "r")
 
         htmlcontent = f.read()
         f.close()
         tree = html.fromstring(htmlcontent)
+
+        # draw the head
+
+
+
+
+        # draw the main table
         tableElem = tree.find(".//table")
         if testcaseinfo.result == "Failed":
             mytablerow = "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td bgcolor=\"#FF0000\">{3}</td><td>{4}</td><td>{5}</td><td>{6}</td></tr>".format(

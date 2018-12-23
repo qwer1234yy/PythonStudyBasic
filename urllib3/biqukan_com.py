@@ -3,7 +3,7 @@ import unittest, urllib3,requests
 
 class MyTestCase(unittest.TestCase):
 
-    url_base = 'https://www.biqukan.com/'
+    url_base = 'https://www.biqukan.com'
     # 重生之娱乐天王
     url_reborn_king = url_base + '/56_56280/'
     # 一念永恒
@@ -64,13 +64,17 @@ class MyTestCase(unittest.TestCase):
         print(resp.data)
 
     def test_get_reborn_king_requests(self):
-        resp = requests.get(method='get', url=self.url_reborn_king, headers=self.headers_reborn_king)
+        resp = requests.get(url=self.url_reborn_king, headers=self.headers_reborn_king)
         print(resp.text)
 
     def test_get_yinian_forever(self):
         resp = requests.get(url=self.url_yi_nian_forever, params=self.headers_yinian_forever,verify=False)
         print(resp.text)
-
+    def test_test(self):
+        target = 'http://www.biqukan.com/1_1094/5403177.html'
+        req = requests.get(url=target, verify=False)
+        html = req.text
+        print(html)
 
 if __name__ == '__main__':
     unittest.main()

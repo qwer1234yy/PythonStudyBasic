@@ -1,0 +1,218 @@
+<html>
+<head>
+<style type="text/css">
+
+        .headers {
+
+        }
+
+        .headers_left {
+            width: 60%;
+            height: 150px;
+            background-color: #fbff99;
+            float: left;
+        }
+
+        .headers_right {
+            width: 40%;
+            height: 150px;
+            background-color: #fbff99;
+            float: left;
+        }
+
+        .operators {
+            position: relative;
+            margin-top: 200px;
+            margin-bottom: 20px;
+        }
+
+        #main_grid {
+            background-color: #fbffc2;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        #all {
+            color: black;
+            background: chocolate;
+        }
+
+        #pass {
+            color: black;
+            background: green;
+        }
+
+        #fail {
+            color: black;
+            background: red;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        table{
+            border:5px;
+            border-color: #ff473d;
+            border-width: 100px;
+        }
+        tr, td,th {
+            border-color: #ffe38f;
+            border-width: 1px;
+            border-style: solid;
+        }
+        tr{
+            padding-top: 50px;
+        }
+        td {
+            margin-right: 50px;
+        }
+    </style>
+<script type="text/javascript">
+        function showAll() {
+            alert("showAll")
+        }
+
+        function showPass() {
+            alert("showPass")
+        }
+
+        function showFail() {
+            alert("showFail")
+        }
+    </script>
+</head>
+<body>
+<div id="main_grid">
+<div class="heading">
+<div class="title">
+<h1>Automation Report</h1>
+</div>
+<div class="headers">
+<div class="headers_left">
+<p class="attribute"><strong>Start Time: </strong> 2018-12-23 15:58:14</p>
+<p class="attribute"><strong>Duration: </strong> 0:00:00</p>
+<p class="attribute"><strong>Status: </strong> Completed</p>
+<p class="description"><strong>Task Description: </strong>testt</p>
+</div>
+<div class="headers_right">
+<p><strong>Total Cases: </strong><i class="total_Cases">3</i></p>
+<p><strong>Pass Cases: </strong><i class="pass_case">2</i></p>
+<p><strong>Fail Cases: </strong><i class="fail_case">1</i></p>
+<p><strong>Runner: </strong><i class="runner">Runner</i></p>
+</div>
+</div>
+</div>
+<div class="operators">
+<button id="all" onclick="showAll()">All</button>
+<button id="pass" onclick="showPass()">Pass</button>
+<button id="fail" onclick="showFail()">fail</button>
+</div>
+<table id="main_table">
+<tbody>
+<tr>
+<th>No.Case</th>
+<th>Owner</th>
+<th>Title</th>
+<th>Status</th>
+<th>Message</th>
+<th>Pic</th>
+</tr><tr><td>3</td><td>jon</td><td>login</td><td bgcolor="#28ff5c">pass</td><td>result message</td><td><a href="../pics/Case Status Reimbursement Detail.png">Case Status Reimbursement Detail.png</a></td></tr><tr><td>2</td><td>jon</td><td>login</td><td bgcolor="#f08080">fail</td><td>result message</td><td><a href="../pics/Case Mix Index (CMI) Comparison.png">Case Mix Index (CMI) Comparison.png</a></td></tr><tr><td>1</td><td>jon</td><td>login</td><td bgcolor="#28ff5c">pass</td><td>result message</td><td><a href="../pics/Average Length of Stay by Payer by Month.png">Average Length of Stay by Payer by Month.png</a></td></tr>
+<tr>
+<td>3</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#28ff5c">pass</td>
+<td>result message</td>
+<td><a href="../pics/Case Status Reimbursement Detail.png">Case Status Reimbursement Detail.png</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#f08080">fail</td>
+<td>result message</td>
+<td><a href="../pics/Case Mix Index (CMI) Comparison.png">Case Mix Index (CMI) Comparison.png</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#28ff5c">pass</td>
+<td>result message</td>
+<td><a href="../pics/Average Length of Stay by Payer by Month.png">Average Length of Stay by Payer by
+                Month.png</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#28ff5c">pass</td>
+<td>result message</td>
+<td><a href="../pics/Case Status Reimbursement Detail.png">Case Status Reimbursement Detail.png</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#f08080">fail</td>
+<td>result message</td>
+<td><a href="../pics/Case Mix Index (CMI) Comparison.png">Case Mix Index (CMI) Comparison.png</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td>jon</td>
+<td>login</td>
+<td bgcolor="#28ff5c">pass</td>
+<td>result message</td>
+<td><a href="../pics/Average Length of Stay by Payer by Month.png">Average Length of Stay by Payer by
+                Month.png</a></td>
+</tr>
+<tr bgcolor="#f08080">
+<td>3</td>
+<td>jon</td>
+<td>login</td>
+<td>pass</td>
+<td>result message</td>
+<td><a href="../pics/Case Status Reimbursement Detail.png">Case Status Reimbursement Detail.png</a></td>
+</tr>
+<tr bgcolor="#f08080">
+<td>2</td>
+<td>jon</td>
+<td>login</td>
+<td>fail</td>
+<td>result message</td>
+<td><a href="../pics/Case Mix Index (CMI) Comparison.png">Case Mix Index (CMI) Comparison.png</a></td>
+</tr>
+<tr bgcolor="#f08080">
+<td>1</td>
+<td>jon</td>
+<td>login</td>
+<td>pass</td>
+<td>result message</td>
+<td><a href="../pics/Average Length of Stay by Payer by Month.png">Average Length of Stay by Payer by
+                Month.png</a></td>
+</tr>
+<tr>
+<td>122</td>
+<td>jon</td>
+<td>login</td>
+<td>test.png</td>
+</tr>
+<tr>
+<td>122</td>
+<td>jon</td>
+<td>login</td>
+<td>test.png</td>
+</tr>
+<tr>
+<td>122</td>
+<td>jon</td>
+<td>login</td>
+<td>test.png</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

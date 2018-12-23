@@ -20,6 +20,11 @@ class MyTestCase(unittest.TestCase):
         report_result.WriteHTML(result)
         report_result.CreateHtmlFile()
 
+    def test_CreateTestResultFile(self):
+        print('eeeeeeeeeeeeeeee')
+        report_result = ReportGenerator.ReportGenerator()
+        report_result.CreateHtmlFile()
+
 
 if __name__ == '__main__':
     unittest.main()
