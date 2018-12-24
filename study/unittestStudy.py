@@ -6,39 +6,34 @@ from selenium.webdriver.common.keys import Keys
 
 class PythonOrgSearch(unittest.TestCase):
 
+    a= 10
+    b=4
+
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        print('setup')
 
-    def test_a1earch_in_python_org(self):
-        driver = self.driver
-        driver.get("http://www.python.org")
-        time.sleep(3)
-        self.assertIn("Python", driver.title)
-        elem = driver.find_element_by_id("id-search-field")
-        # elem = driver.find_element_by_name("q")
-        elem.send_keys("Python")
-        time.sleep(3)
-        elem.send_keys(Keys.RETURN)
-        assert "No results found." not in driver.page_source
+    @unittest.expectedFailure
+    def test_test1(self):
 
-    def test_a2earch_in_python_org_baidu(self):
-        driver = self.driver
-        driver.get("http://www.baidu.com")
-        time.sleep(3)
-        self.assertIn("百度一下", driver.title)
-        # search_elem = driver.find_element_by_id("kw")
-        search_elem = driver.find_element_by_class_name("s_ipt")
-        print(search_elem)
-        print("search_elem")
-        search_elem.send_keys("Python")
-        search_elem.send_keys(Keys.RETURN)
-        assert "Welcome to Python.org" not in driver.page_source
-        print("Welcome to Python.org" not in driver.page_source)
-    def testa(self):
-        print('test3')
+        self.assertEqual(self.a,self.b,'a not equal b')
+
+        print('test_test1')
+
+    def test_test2(self):
+        print('test_test2')
+
+    def test_test3(self):
+        print('test_test3')
+
+    def test_test4(self):
+        print('test_test4')
+
     def tearDown(self):
-        self.driver.close()
+        print('tearDown')
 
 
 if __name__ == "__main__":
-    unittest.main()
+    suite = unittest.TestSuite()
+    suite.addTest(PythonOrgSearch('test_test2'))
+    result = unittest.TextTestRunner().run(suite)
+    print(result.expectedFailures)
