@@ -103,7 +103,7 @@ def report_result_find_text(driver,report_name):
     driver.find_element_by_xpath('//br[text()="'+report_name+'"]')
 
 
-def add_filters_besides_default_ones(driver, n):
+def add_filters_besides_default_ones(driver, n, report):
 
     # set up filters
     ACT.wait_element_clickable(driver, By.ID, 'btnInsertClause')
@@ -142,6 +142,14 @@ def add_filters_besides_default_ones(driver, n):
         field_name = 'ICD Proc Codes - Principal - First Version'
     else:
         field_name = 'ICD Proc Codes - Principal'
+
+    if 'SMART Reimbursement Activity by Year' in report:
+        field_name = 'ICD Proc Codes - Primary'
+    if 'Reimbursement Version Detail' in report:
+        field_name = 'ICD Proc Codes - Other'
+    if 'Reimbursement Change Summary' in report:
+        field_name = 'ICD Dx Codes - Principal'
+
 
     field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'
     print(field_xpath)

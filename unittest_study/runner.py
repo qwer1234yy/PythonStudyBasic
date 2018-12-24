@@ -13,19 +13,22 @@ if __name__ == '__main__':
     # runer.run(suite)
 
 
-    # 2
-    # suite = unittest.TestSuite()
-    # discover = unittest.defaultTestLoader.discover('test_cases',pattern='test*.py')
+    #2
+    suite = unittest.TestSuite()
+    discover = unittest.defaultTestLoader.discover('test_cases',pattern='test*.py')
     # for i in discover:
     #     print(i)
     #     suite.addTest(i)
-    # suite.addTests(discover)
-    # unittest.TextTestRunner().run(suite)
+    suite.addTests(discover)
+    result = unittest.TextTestRunner().run(suite)
+
+    print(result)
+    print(type(result))
 
     #3
-    suite = unittest.TestSuite()
-    discover = unittest.defaultTestLoader.discover('test_cases', pattern='test*.py')
-    suite.addTests(discover)
-    f= open('report.html','w',encoding='utf-8')
-    runer = HTMLTestRunner(stream = f, title ='report test',description = 'testt',verbosity = 2)
-    runer.run(suite)
+    # suite = unittest.TestSuite()
+    # discover = unittest.defaultTestLoader.discover('test_cases', pattern='test*.py')
+    # suite.addTests(discover)
+    # f= open('report.html','w',encoding='utf-8')
+    # runer = HTMLTestRunner(stream = f, title ='report test',description = 'testt',verbosity = 2)
+    # runer.run(suite)

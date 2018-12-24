@@ -26,10 +26,10 @@ class MyTestCase(unittest.TestCase):
         # IP_report.go_to_report_ip_Enterprise(driver)
         if 'standard' in enterprise_or_standard:
            # IP_report.go_to_report_ip_Standard(driver)
-           reports.reports.go_to_op_enterprise(driver)
+           reports.reports.go_to_op_standard(driver)
         else:
            # IP_report.go_to_report_ip_Enterprise(driver)
-           reports.reports.go_to_op_standard(driver)
+           reports.reports.go_to_op_enterprise(driver)
 
         for i in range(0, reports_dic_standard.__len__()):
 
@@ -46,7 +46,7 @@ class MyTestCase(unittest.TestCase):
             IP_report.go_to_report_CS(driver, report)
 
             # add filters besides the default ones
-            IP_report.add_filters_besides_default_ones(driver, i)
+            IP_report.add_filters_besides_default_ones(driver, i,report)
 
             # Click "View report"
             IP_report.view_report_by_default_filters(driver)
