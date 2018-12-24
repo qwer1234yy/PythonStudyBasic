@@ -13,7 +13,7 @@ class testResult(object):
 
 
 class MyTestCase(unittest.TestCase):
-
+    @unittest.skip
     def test_len_size(self):
         # result1 = testResult(id='1',owner='jon',title='login', status='pass',message='result message', pic='Average Length of Stay by Payer by Month.png')
         # result2 = testResult(id='2',owner='jon',title='login', status='fail',message='result message', pic='Case Mix Index (CMI) Comparison.png')
@@ -35,6 +35,43 @@ class MyTestCase(unittest.TestCase):
         print(result3_detail.keys())
         for i in result3_detail.keys():
             print(i)
+
+    @unittest.skip
+    def test_remove_prevoius_data_in_htmlreport(self):
+        print('test_remove_prevoius_data_in_htmlreport')
+        Fobj = open('beautifullSouptest.html')
+        Data = Fobj.read()
+        Fobj.close()
+        soup_elements = BeautifulSoup(Data, features="lxml")
+
+        # clear in headings
+        total_case_tag = soup_elements.select_one('.total_Cases')
+        pass_case_tag = soup_elements.select_one('.pass_case')
+        fail_case_tag = soup_elements.select_one('.fail_case')
+
+        total_case_tag.clear()
+        pass_case_tag.clear()
+        fail_case_tag.clear()
+
+        fail_case_tag.string = '0'
+        pass_case_tag.string = '0'
+        total_case_tag.string = '0'
+
+        # clear main table
+        row = soup_elements.select_one('#main_table tbody tr')
+        rows = soup_elements.select('#main_table tbody tr')
+        for i in range(0, len(rows)):
+            if i == 0:
+                print('')
+            else:
+                i.decompose()
+
+
+        file = open('beautifullSouptest.html', 'w')
+        file.write(str(soup_elements))
+        file.close()
+
+
 
     def test_insert_main_table(self):
         Fobj = open('beautifullSouptest.html')
@@ -129,7 +166,10 @@ class MyTestCase(unittest.TestCase):
             detail_row_th = soup_elements.new_tag('tr', attrs=atts_detail_tr)
 
             # th
+
             atts_detail_td = {'class':'case_detail','style': "text-align:center"}
+            detail_td_holder = soup_elements.new_tag('th', attrs=atts_detail_td)
+            detail_td_holder.string = ''
             detail_td_stepNum = soup_elements.new_tag('th',attrs=atts_detail_td)
             detail_td_stepNum.string = 'Step'
             detail_td_action = soup_elements.new_tag('th',attrs=atts_detail_td)
@@ -141,11 +181,12 @@ class MyTestCase(unittest.TestCase):
             detail_td_pic = soup_elements.new_tag('th', attrs=atts_detail_td)
             detail_td_pic.string = 'Pic'
 
-            detail_row_th.insert(position=0, new_child=detail_td_stepNum)
-            detail_row_th.insert(position=1, new_child=detail_td_action)
-            detail_row_th.insert(position=2, new_child=detail_td_status)
-            detail_row_th.insert(position=3, new_child=detail_td_message)
-            detail_row_th.insert(position=4, new_child=detail_td_pic)
+            detail_row_th.insert(position=0, new_child=detail_td_holder)
+            detail_row_th.insert(position=1, new_child=detail_td_stepNum)
+            detail_row_th.insert(position=2, new_child=detail_td_action)
+            detail_row_th.insert(position=3, new_child=detail_td_status)
+            detail_row_th.insert(position=4, new_child=detail_td_message)
+            detail_row_th.insert(position=5, new_child=detail_td_pic)
             tr_new.insert_after(detail_row_th)
 
 
@@ -155,6 +196,8 @@ class MyTestCase(unittest.TestCase):
                 detail_row = soup_elements.new_tag('tr',attrs=atts_detail_tr)
 
                 # td
+                detail_td_holder = soup_elements.new_tag('th', attrs=atts_detail_td)
+                detail_td_holder.string = ''
                 detail_td_stepNum = soup_elements.new_tag('td')
                 detail_td_stepNum.string = j
                 detail_td_action = soup_elements.new_tag('td')
@@ -174,11 +217,12 @@ class MyTestCase(unittest.TestCase):
                 detail_td_pic_a.string = results[i].detail[j]['pic_path']
                 detail_td_pic.insert(position=0, new_child=detail_td_pic_a)
 
-                detail_row.insert(position=0, new_child=detail_td_stepNum)
-                detail_row.insert(position=1, new_child=detail_td_action)
-                detail_row.insert(position=2, new_child=detail_td_status)
-                detail_row.insert(position=3, new_child=detail_td_message)
-                detail_row.insert(position=4, new_child=detail_td_pic)
+                detail_row.insert(position=0, new_child=detail_td_holder)
+                detail_row.insert(position=1, new_child=detail_td_stepNum)
+                detail_row.insert(position=2, new_child=detail_td_action)
+                detail_row.insert(position=3, new_child=detail_td_status)
+                detail_row.insert(position=4, new_child=detail_td_message)
+                detail_row.insert(position=5, new_child=detail_td_pic)
 
                 detail_row_th.insert_after(detail_row)
 
