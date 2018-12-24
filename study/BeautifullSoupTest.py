@@ -88,7 +88,8 @@ class MyTestCase(unittest.TestCase):
         row = soup_elements.select_one('#main_table tbody tr')
         # insert one row
         for i in range(0,len_total):
-            tr_new = soup_elements.new_tag('tr')
+            attrs={'class':'case'}
+            tr_new = soup_elements.new_tag('tr', attrs=attrs )
             td_new_id = soup_elements.new_tag('td', style="color:red")
             td_new_id.string = results[i].id
             td_new_owner = soup_elements.new_tag('td')
@@ -117,7 +118,7 @@ class MyTestCase(unittest.TestCase):
             row.insert_after(tr_new)
 
             # case detail
-            atts_detail_tr = {'id': results[i].id, 'class': "case_detail", 'style': "display:"}
+            atts_detail_tr = {'id': results[i].id, 'class': str(results[i].id), 'style': "display:none"}
             detail_row_th = soup_elements.new_tag('tr', attrs=atts_detail_tr)
 
             # th
@@ -139,7 +140,7 @@ class MyTestCase(unittest.TestCase):
 
 
             for j in results[i].detail.keys():
-                atts_detail_tr = {'id':results[i].id,'class':"case_detail",'style':"display:"}
+                atts_detail_tr = {'id':results[i].id,'class': str(results[i].id),'style':"display:none"}
                 detail_row = soup_elements.new_tag('tr',attrs=atts_detail_tr)
 
                 # td
