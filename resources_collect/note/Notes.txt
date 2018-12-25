@@ -15,3 +15,57 @@ ctr + alt + l: 格式化文件， 规范化
 pip3 install lxml-4.2.1-cp36-cp36m-win_amd64.whl
 lxml practice: https://www.cnblogs.com/zhangxinqi/p/9210211.html
 
+Pytest批量运行测试用例：在项目目录下，cmd中直接输入‘pytest’即可运行项目中的所有测试用例
+
+# pytest
+# pytest --version
+CMD运行pytest
+pytest --运行所有test
+pytest Test_pytest2.py  --运行指定py文件中的test
+pytest testcase_dir  --运行指定文件夹下的test case
+python -m pytest [...]
+Run tests by keyword expressions
+    pytest -k "MyClass and not method"
+
+Run tests by node ids
+Each collected test is assigned a unique nodeid which consist of the module filename followed by specifiers like class names, function names and parameters from parametrization, separated by :: characters.
+
+To run a specific test within a module:
+    pytest test_mod.py::test_func
+Another example specifying a test method in the command line:
+    pytest test_mod.py::TestClass::test_method
+
+Run tests by marker expressions
+    pytest -m slow
+    Will run all tests which are decorated with the @pytest.mark.slow decorator.
+Run tests from packages
+    pytest --pyargs pkg.testing
+    This will import pkg.testing and use its filesystem location to find and run tests from.
+
+Stopping after the first (or N) failures
+To stop the testing process after the first (N) failures:
+
+    pytest -x            # stop after first failure
+    pytest --maxfail=2    # stop after two failures
+
+Mock测试是在测试过程中对可能不稳定、有副作用、不容易构造或者不容易获取的对象，用一个虚拟的对象来创建以便完成测试的方法。在Python中这种测试是通过第三方的mock库完成的，mock在Python3.3的时候被引入到Python标准库中，改名为unittest.mock。之前的Python版本都需要安装：pip install mock
+初学者理解mock比较抽象，可以简单理解为函数指针，通过mock成员方法或变量，可以指定mock对象的返回值，获取是否被调用、被调用次数、调用时的参数等。
+链接：https://www.jianshu.com/p/36128049fefc
+
+Possible exit codes
+Running pytest can result in six different exit codes:
+
+Exit code 0:	All tests were collected and passed successfully
+Exit code 1:	Tests were collected and run but some of the tests failed
+Exit code 2:	Test execution was interrupted by the user
+Exit code 3:	Internal error happened while executing tests
+Exit code 4:	pytest command line usage error
+Exit code 5:	No tests were collected
+
+pytest --version   # shows where pytest was imported from
+pytest --fixtures  # show available builtin function arguments
+pytest -h | --help # show help on command line and config file options
+
+
+
+

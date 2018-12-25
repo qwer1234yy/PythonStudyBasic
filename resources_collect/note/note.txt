@@ -2,3 +2,5 @@ learn resources for python: http://www.liujiangblog.com
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyhook  ------pyHook download
 https://www.npmjs.com/package/selenium-webdriver  ------selenium-webdriver
 http://selenium-release.storage.googleapis.com/index.html   -------selenium-webdriver--IE
+https://www.lfd.uci.edu/~gohlke/pythonlibs/  ----------packages for python
+https://pypi.org --------------python package
