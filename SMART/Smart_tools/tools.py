@@ -211,3 +211,8 @@ def write_dics_list_to_xml(root_node_name, sub_node_name, dics_list, xml_file_pa
     # xml_file_path = os.path.abspath(file_name)
     f = open(xml_file_path, 'w', encoding='UTF-8')
     doc.writexml(f, indent='', addindent='\t', newl='\n', encoding='UTF-8')
+
+def file_exist_delete(file_path):
+    if os.path.exists(file_path):
+        print('------------file_exists_delete-----------')
+        os.remove(file_path)

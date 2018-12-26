@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import SMART.Smart_tools.tools as tools
+import SMART.Smart_tools.report_tools as report_tools
 
 
 class MyTestCase(unittest.TestCase):
@@ -20,6 +21,11 @@ class MyTestCase(unittest.TestCase):
         print('setup')
     def tearDown(self):
         print('tearDown')
+
+    def test_report_tool(self):
+        names = report_tools.read_report_names('standard')
+        print(names)
+
 
     def test_tools(self):
         # tools.spide_write_to_txt('sssss','Smart_resources/cs_fields.txt')

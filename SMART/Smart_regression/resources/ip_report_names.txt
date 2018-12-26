@@ -1,0 +1,63 @@
+Data Comparison-standard
+-PEPPER Report
+Attending Physician Frequency by DRG-standard
+Case Change Results-standard
+Case Listing-standard
+Case Version Comparison-standard
+Case-Mix by Payer by Month-standard
+Medicare Case-Mix by Month-standard
+Cases Processed on Import-standard
+Case Mix Index (CMI) Comparison-standard
+Case Mix Index (CMI) Analysis-standard
+Detailed Case Listing-standard
+Diagnosis Code Usage-standard
+Discharges by Grouper Version - DRG-standard
+Coding-DRG Accuracy Analysis-standard
+Coding-DRG Review Summary-standard
+DRG Change Condition Detail-standard
+DRG Change Impact-standard
+DRG Clinical Profile-standard
+DRG Contribution to CMI-standard
+DRG Contribution to Payer CMI-standard
+DRG Frequency-standard
+DRG Illness Severity Score Comparison-standard
+DRG Summary by Grouper Version - MDC-standard
+DRG Illness Severity Score Comparison by Payer-enterprise
+Medicare Post-Acute Care (PAC) DRG Frequency-enterprise
+Frequency-enterprise
+Case Mix Index (CMI) Comparison-enterprise
+DRG Frequency-enterprise
+Reimbursement Change Summary-enterprise
+SMART Results Summary-enterprise
+SMART Results Summary with CMI by Facility-enterprise-failed
+Flag Rate by Facility by Month-enterprise
+Medicare HAC Potential Impact-enterprise
+PEPPER Report-enterprise
+Average Length of Stay by Payer by Month-standard
+Illness Severity Score by Payer by Month-standard
+Diagnosis Analysis by Present on Admission(POA)-standard
+Medicare Case-Mix by Month-standard
+Medicare Hospital-Acquired Conditions-standard
+SMART Reimbursement Activity-standard
+Medicare Post-Acute Care (PAC) Reimbursement Comparison-standard
+Medicare Post-Acute Care (PAC) DRG Frequency-standard
+Performance Metrics-standard
+Present on Admission(POA) Comparison-standard
+Principal Procedures-standard
+Profile-standard
+Readmissions-standard
+Case Status Reimbursement Detail-standard
+Grouper Version Reimbursement Detail-standard
+CMI Reimbursement Summary by Attending Physician-standard
+CMI Reimbursement Summary-enterprise
+SMART Case Review Results-enterprise
+SMART Case Review Results-standard
+Case Status Reimbursement Summary-standard
+Reimbursement Change Summary-standard
+SMART Report Card-standard
+SMART Reimbursement Activity-standard
+Summary by Primary Flag with Revision Information-enterprise
+Summary by Primary Flag-standard
+Top 50 CC/MCC Diagnoses-enterprise
+Top 50 Diagnoses by Present on Admission(POA)-standard
+DRG Listing by Payer-standard

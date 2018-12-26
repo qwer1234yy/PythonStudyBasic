@@ -1,0 +1,3 @@
+[starts-with(@name,'name')]--查找name属性以xxx开头
+[contains(@name,'name')]--
+[contains(text(),'name')]--
