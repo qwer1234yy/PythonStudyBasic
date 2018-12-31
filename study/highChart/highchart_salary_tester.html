@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery-3.3.1.js"></script>
+    <script src="../../js/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+var title = {
+  text: '各地测试工程师薪资概况'
+};
+var subtitle = {
+  text: 'Source: itest.com'
+};
+var xAxis = {
+   categories: ['上海', '北京', '广州', '深圳', '重庆', '成都','武汉']
+};
+var yAxis = {
+   title: {
+      text: 'Temperature (\xB0C)'
+   },
+   plotLines: [{
+      value: 0,
+      width: 1,
+      color: '#808080'
+   }]
+};
+
+var tooltip = {
+   valueSuffix: '\xB0C'
+}
+var legend = {
+   layout: 'vertical',
+   align: 'right',
+   verticalAlign: 'middle',
+   borderWidth: 0
+};
+
+var json = {};
+
+json.title = title;
+json.subtitle = subtitle;
+json.xAxis = xAxis;
+json.yAxis = yAxis;
+json.tooltip = tooltip;
+json.legend = legend;
+<!--json.series = series;-->
+
+$('#container').highcharts(json);
+</script>
+
+</body>
+</html>
