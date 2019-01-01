@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{{url_for('static', filename='highcharts.js')}}"></script>
+    <script src="{{url_for('static', filename='jquery-3.3.1.js')}}"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+    $(function () {
+
+        $.getJSON("http://127.0.0.1:5000/test1", function (result) {
+
+            <!--准备数据-->
+            var cities = cities = result['cities']
+            var highest_salary = result['high']
+            var ave_salary = result['avg']
+            var low_salary = result['low']
+
+            /*<!--开始制表-->*/
+            var myChart = Highcharts.chart('container', {
+                chart: {
+                    type: 'column' /*bar column*/
+                },
+                title: {
+                    text: '各地测试工程师薪资概况'
+                },
+                yAxis: {
+                        min: 0,
+                        title: {
+                            text: '工资'
+                        }
+                    },
+                xAxis: {
+                    title: {
+                        text: '城市'
+                    },
+                    categories:cities,
+                    crosshair: true
+                },
+
+                plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+
+                series: [{
+                    name: '最高',
+                    data: highest_salary
+                }, {
+                    name: '平均',
+                    data: ave_salary
+                },
+                {
+                    name: '最低',
+                    data: low_salary
+                }
+                ]
+        });
+        })
+    });
+</script>
+
+</body>
+</html>
