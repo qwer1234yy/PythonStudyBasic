@@ -115,11 +115,11 @@ class MyTestCase(unittest.TestCase):
 
         position = '软件测试'
 
-        url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html'.format(position)
+        url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html?ord_field=1'.format(position)
         total_pages = self.get_total_pages(url_base_positin)
 
         for page_index in range(1, total_pages + 1):
-            url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html'.format(position, page_index)
+            url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html?ord_field=1'.format(position, page_index)
             print(url)
             self.parse_html(url)
 
