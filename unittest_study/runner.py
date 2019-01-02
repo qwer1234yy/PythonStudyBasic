@@ -1,7 +1,4 @@
 import unittest
-from unittest_study.test_cases import test1,test2
-from HTMLTestRunner_test.HTMLTestRunner import HTMLTestRunner
-
 
 if __name__ == '__main__':
     # 1

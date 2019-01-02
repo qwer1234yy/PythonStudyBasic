@@ -133,22 +133,26 @@ def add_filters_besides_default_ones(driver, n, report):
     elif n % iter_n == 1:
         field_name = 'ICD Dx Codes - Other'
     elif n % iter_n == 2:
-        field_name = 'ICD Dx Codes - Principal'
+        field_name = 'ICD Dx Codes - Primary'
     elif n % iter_n == 3:
         field_name = 'ICD Proc Codes - Any'
     elif n % iter_n == 4:
         field_name = 'ICD Proc Codes - Other'
     elif n % iter_n == 5:
-        field_name = 'ICD Proc Codes - Principal - First Version'
+        # field_name = 'ICD Proc Codes - Principal - First Version'
+        field_name = 'ICD Proc Codes - Primary'
     else:
-        field_name = 'ICD Proc Codes - Principal'
+        # field_name = 'ICD Proc Codes - Principal'
+        field_name = 'ICD Dx Codes - Visit Reason'
 
     if 'SMART Reimbursement Activity by Year' in report:
         field_name = 'ICD Proc Codes - Primary'
     if 'Reimbursement Version Detail' in report:
         field_name = 'ICD Proc Codes - Other'
     if 'Reimbursement Change Summary' in report:
-        field_name = 'ICD Dx Codes - Principal'
+        field_name = 'ICD Dx Codes - Other'
+    if 'Detailed Visit Listing' in report:
+        field_name = 'ICD Dx Codes - Any'
 
 
     field_xpath = '//div[@class="k-animation-container"][last()]/div/ul/li[text()="' + field_name + '"]'

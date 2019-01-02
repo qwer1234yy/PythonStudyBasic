@@ -1,0 +1,88 @@
+-Security Administration Information by Role	-standard
+1Coder Information	-standard
+-Flag Management Setting Audit	-standard -report cannot be loaded even in the smallest time range
+1DRG Listing by Payer	-standard
+1Financial Class Mapping Information	-standard
+1Inpatient Flag Information	-standard
+1Inpatient Flag Information by Facility	-standard
+1Patient Status Mapping Information	-standard
+1Data Comparison	-standard o
+-PEPPER Report	-standard
+1Case Listing	-standard o
+1Case Version Comparison	-standard
+1Detailed Case Listing	-standard
+1Case Mix Index (CMI) Analysis	-standard
+1Case Mix Index (CMI) Comparison	-standard
+1Case-Mix by Payer by Month	-standard
+1Medicare Case-Mix by Month	-standard
+1Attending Physician Frequency by DRG	-standard
+1Discharges by Grouper Version - DRG	-standard
+1DRG Change Condition Detail	-standard
+1DRG Change Impact	-standard
+1DRG Clinical Profile	-standard
+1DRG Contribution to CMI	-standard
+1DRG Frequency	-standard
+1DRG Illness Severity Score Comparison	-standard
+1DRG Summary by Grouper Version - MDC	-standard
+1Medicare Post-Acute Care (PAC) DRG Frequency	-standard
+1Summary by Primary Flag	-standard
+1Summary by Primary Flag with Revision Information	-standard
+1Frequency	-standard
+1Diagnosis Analysis by Present on Admission(POA)	-standard
+1Diagnosis Code Usage by Payer	-standard
+1Medicare Hospital-Acquired Conditions	-standard
+1Present on Admission(POA) Comparison	-standard
+1Principal Procedures	-standard
+1Top 50 CC/MCC Diagnoses	-standard
+1Top 50 Diagnoses by Present on Admission(POA)	-standard
+1Cases Processed on Import	-standard
+-Data Validation	-standard
+1Frequency	-standard
+1IP Worksheet	-standard
+1Average Length of Stay by Payer by Month	-standard
+1Case Change Results	-standard
+1Coding-DRG Accuracy Analysis	-standard
+1Coding-DRG Review Summary	-standard
+1Illness Severity Score by Payer by Month	-standard
+1Performance Metrics	-standard
+-Profile	-standard many profile
+1Readmissions	-standard
+1SMART Case Review Results	-standard
+1SMART Report Card	-standard
+1SMART Results Summary	-standard
+1Case Status Reimbursement Detail	-standard
+1Case Status Reimbursement Summary	-standard
+1CMI Reimbursement Summary by Attending Physician	-standard
+1Grouper Version Reimbursement Detail	-standard
+1Medicare HAC Potential Impact	-standard
+1Medicare Post-Acute Care (PAC) DRG Reimbursement	-standard
+1Medicare Post-Acute Care (PAC) Reimbursement Comparison	-standard
+1Reimbursement Change Summary	-standard
+1SMART Reimbursement Activity	-standard
+1Data Comparison	-enterprise
+1Case Mix Index (CMI) Analysis	-enterprise
+1Case Mix Index (CMI) Comparison	-enterprise
+1DRG Clinical Profile	-enterprise
+1DRG Contribution to Payer CMI	-enterprise
+1DRG Frequency	-enterprise
+1DRG Illness Severity Score Comparison by Payer	-enterprise
+1Medicare Post-Acute Care (PAC) DRG Frequency by Patient Status	-enterprise
+1Frequency	-enterprise
+1Diagnosis Analysis by Present on Admission(POA)	-enterprise
+1Medicare Hospital-Acquired Conditions	-enterprise
+1Top 50 CC/MCC Diagnoses	-enterprise
+1Top 50 Diagnoses by Present on Admission(POA)	-enterprise
+-Enterprise Data Validation	-enterprise
+1Coding-DRG Accuracy Analysis	-enterprise
+1Flag Rate by Facility by Month	-enterprise
+-Profile	-enterprise many profile
+1SMART Case Review Results	-enterprise
+1SMART Report Card	-enterprise
+1SMART Results Summary	-enterprise
+-SMART Results Summary with CMI by Facility	-enterprise error
+1Summary by Primary Flag	-enterprise
+1Summary by Primary Flag with Revision Information	-enterprise
+1CMI Reimbursement Summary	-enterprise
+1Medicare HAC Potential Impact	-enterprise
+1Reimbursement Change Summary	-enterprise
+1SMART Reimbursement Activity	-enterprise

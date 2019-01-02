@@ -19,6 +19,7 @@ class MyTestCase(unittest.TestCase):
     }
 
     def test_something(self):
+        # htttps
         response = self.http.request(method='get', url= self.url, fields=None, headers=self.headers)
         # 这个地方response 为何不提示
         print(response.read())

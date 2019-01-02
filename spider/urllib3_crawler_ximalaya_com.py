@@ -29,7 +29,7 @@ class MyTestCase(unittest.TestCase):
     'Host': 'www.ximalaya.com'
     }
     fields_login = {
-        'password': 'dmlHqvAECDYs0hMFWlC+qQWtGaXFy91od+ZkiID1ozvWIMuEjKPPi8lYZumCvKY3sbwhCQEwfYLYuJD2fxk+RFzlj7euX19mNfIPqBJdPfM4rGgV60/KKcjT7FTwYBsCKv3C7w8YMgYqNiO2hPtGxx3qzvS1lG4LXhcp7pn6o0U=',
+        'password': '123456',
         'rememberMe': 'false',
         'account': '15280928790'
     }
@@ -38,6 +38,7 @@ class MyTestCase(unittest.TestCase):
     }
 
     def test_login(self):
+        # 加密 发请求验证
         resp = self.http.request(method='post', url=self.url_login, headers=self.login_headers, fields=self.fields_login)
         # login_return_json = json.loads(resp.data.decode('utf-8'))
         # json.loads(r.data.decode('utf-8'))

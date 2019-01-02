@@ -16,7 +16,7 @@ class MyTestCase(unittest.TestCase):
     def test_something(self):
         driver = webdriver.Firefox()
         driver.maximize_window()
-        enterprise_or_standard = 'enterprise' # enterprise standard
+        enterprise_or_standard = 'standard' # enterprise standard
         reports_dic_standard = SC.read_file_report_names_as_list(enterprise_or_standard)
         reports_values = list(reports_dic_standard.values())
         reports_keys = list(reports_dic_standard.keys())

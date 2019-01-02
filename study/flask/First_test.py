@@ -12,7 +12,8 @@ def test1():
             'high':[20,21,31,23],
             'avg':[20,21,31,23],
             'low':[20,21,31,23]}
-    return json.dumps(data)
+
+    return json.dumps(data).encode('UTF-8')
 
 @app.route('/test2')
 def test2():

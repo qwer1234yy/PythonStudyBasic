@@ -4,6 +4,12 @@ import os
 from SMART.Smart_tools.testResult import testResult
 
 
+def save_resource_file(driver, name):
+    file = open(name + '.html', 'w')
+    file.write(driver.page_source)
+    file.close()
+
+
 def spide_write_to_txt(s, file_path):
     try:
         # '../Smart_resources/cs_operators.txt'
@@ -13,6 +19,8 @@ def spide_write_to_txt(s, file_path):
     finally:
         if f:
             f.close()
+
+
 def write_html_report_dic(results):
     # results
     print('write_html_report_dic')
@@ -21,40 +29,6 @@ def write_html_report_dic(results):
     Fobj.close()
     soup_elements = BeautifulSoup(Data, features="lxml")
 
-    # case result and detail
-    # result1_detail = {'step1': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step2': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step3': {'status': 'fail', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'}}
-    #
-    # result2_detail = {'step1': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step2': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step3': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step4': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'}}
-    #
-    # result3_detail = {'step1': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step2': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step3': {'status': 'pass', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'},
-    #                   'step4': {'status': 'fail', 'action': 'action description', 'message': 'message content',
-    #                             'pic_path': 'Average Length of Stay by Payer by Month.png'}}
-    #
-    # result1 = testResult(id='TC001', owner='robbin', title='login', status='pass', message='result message',
-    #                      pic='Average Length of Stay by Payer by Month.png', detail=result1_detail)
-    # result2 = testResult(id='TC002', owner='reeta', title='login', status='fail', message='result message',
-    #                      pic='Case Mix Index (CMI) Comparison.png', detail=result2_detail)
-    # result3 = testResult(id='TC003', owner='jon', title='login', status='pass', message='result message',
-    #                      pic='Case Status Reimbursement Detail.png', detail=result3_detail)
-    #
-    # results = [result1, result2, result3]
     new_results_len = len(results)
 
     total_case_tag = soup_elements.select_one('.total_Cases')
@@ -211,6 +185,7 @@ def write_dics_list_to_xml(root_node_name, sub_node_name, dics_list, xml_file_pa
     # xml_file_path = os.path.abspath(file_name)
     f = open(xml_file_path, 'w', encoding='UTF-8')
     doc.writexml(f, indent='', addindent='\t', newl='\n', encoding='UTF-8')
+
 
 def file_exist_delete(file_path):
     if os.path.exists(file_path):
