@@ -1,7 +1,18 @@
-import unittest,xlrd, xlwt
+import unittest,xlrd,xlwt,os
 
 
 class MyTestCase(unittest.TestCase):
+
+    def test_os(self):
+        f_name = 'result.html'
+        f_path = os.path.dirname(__file__)
+        # file = open(f_path+f_name)
+        print(os.curdir)
+        print(os.getcwd())
+        print(os.path.dirname(__file__))
+        print(os.path.abspath(f_name))
+        print(os.path.realpath(__file__))
+
 
     def test_something(self):
         f = r'C:\Users\yyang212\PycharmProjects\PythonStudy\SMART\Smart_resources\fields.xlsx'
