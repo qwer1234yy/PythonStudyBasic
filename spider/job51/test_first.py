@@ -38,7 +38,7 @@ class MyTestCase(unittest.TestCase):
         return total_pages
 
     def connect(self, url):
-        response = requests.get(url, headers=self.headers)
+        response = requests.get(url, headers=self.headers, verify=False)
         response.encoding = 'gbk'
         # print(response.text)
 
@@ -96,7 +96,7 @@ class MyTestCase(unittest.TestCase):
             position['date'] = date
             position['detail_description'] = detail_description
 
-            query = """INSERT INTO 51job_position_v2(position,company,location,salary,date,description)VALUES
+            query = """INSERT INTO 51job_position_v3(position,company,location,salary,date,description)VALUES
              ('{0}', '{1}', '{2}','{3}','{4}','{5}')""".format(
                 position_, company, location, salary, date, detail_description)
             DBconnectionsTool.connection.insert(self, query=query)
@@ -115,13 +115,45 @@ class MyTestCase(unittest.TestCase):
 
         position = '软件测试'
 
-        url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html?ord_field=1'.format(position)
+        url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html?ord_field=1'.format(
+            position)
         total_pages = self.get_total_pages(url_base_positin)
+        # total_pages = 20
 
         for page_index in range(1, total_pages + 1):
-            url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html?ord_field=1'.format(position, page_index)
+            url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html?ord_field=1'.format(position,
+                                                                                                               page_index)
             print(url)
+            print('???????????????')
             self.parse_html(url)
+
+    def test_filters(self):
+        # Test manager,Senior Tester, Automation Engineer,
+        # 查找既包含软件又包含测试的职位；查询不包含软件，去掉包含硬件的职位
+        # 只选择最近一天或者两天的职位
+        # 重点关注几个城市
+        # 1月10号发布职位数量
+        # 上海 北京 深圳 广州 成都 重庆 武汉
+        #
+        pass
+
+    def get_all_positions(self):
+        con = DBconnectionsTool.connection.connect_mysql(self)
+
+        sql = 'SELECT * FROM 51job_position_v3'
+
+        cursor = con.cursor()
+        cursor.execute(sql)
+
+        result = cursor.fetchall()
+        positions = []
+        for i in result:
+            pos = position(position=i[1], company=i[2], location=i[3], salary=i[4], date=i[5], quality=i[6])
+            positions.append(pos)
+
+        return positions
+
+        con.close()
 
 
 if __name__ == '__main__':

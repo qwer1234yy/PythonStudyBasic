@@ -1,4 +1,5 @@
 from mysql import connector
+from mysql.connector.cursor import MySQLCursorDict
 
 class connection(object):
 
