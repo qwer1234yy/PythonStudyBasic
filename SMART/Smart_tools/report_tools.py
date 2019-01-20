@@ -2,9 +2,12 @@ from selenium.webdriver.common.by import By
 import SMART.Smart_common.Smart_actions as Smart_actions
 import SMART.Smart_tools.report_tools as report_tools
 import SMART.Smart_pages.Smart_reports as reports
-
+import SMART.Smart_common_settings as settings
+import os
 from SMART.Smart_tools import tools
 import SMART.Smart_com_acts as ACT
+from docx import Document
+from docx.shared import Inches
 
 
 def report_continue(driver, report_name):
@@ -89,7 +92,7 @@ def no_default_filter_handle(driver, report_name):
     for li in fields_lis:
         print(li.text)
 
-    if report_name in ['Coder Information','Inpatient Flag Information','Inpatient Flag Information by Facility']:
+    if report_name in ['Outpatient Flag Information by Facility','Outpatient Flag Information','APC Reimbursement Information','Coder Information','Inpatient Flag Information','Inpatient Flag Information by Facility']:
         field_name = fields_lis[0].text
         operator_value = '= Equal'
         field_name_value = '1/2/2019'
@@ -123,7 +126,13 @@ def no_default_filter_handle(driver, report_name):
         value_input = driver.find_element_by_xpath(value_input_xpath)
         value_input.click()
         value_input.send_keys(field_name_value)
-    elif field_name in ['Flag Group - Primary']:
+    elif field_name in ['APC Code']:
+        value_input_xpath = value_input_xpath_
+        value_input = driver.find_element_by_xpath(value_input_xpath)
+        value_input.click()
+        value_input.send_keys('1')
+
+    elif field_name in ['Flag Group - Primary','Flag Group']:
         # click search icon
         value_a_xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a'
         ACT.wait_element_clickable(driver, By.XPATH, value_a_xpath)
@@ -138,6 +147,19 @@ def no_default_filter_handle(driver, report_name):
             '//div[@id="dvLookupuGrid"]/div[@class="k-grid-content"]/table/tbody/tr[1]/td[2]')
 
         value_select.click()
+
+def error_occurred_handle(driver, report_name):
+    Smart_pass = True
+    if driver.page_source.__contains__('Error Occurred'):
+        report_tools.take_screenshot(driver, report_name + 'out of memory')
+        out_of_memory = 'error_occurred_handle'
+        print(out_of_memory)
+        reports.reports.close_report_view_window(driver)
+        reports.reports.close_report_cs_page(driver)
+        Smart_pass = False
+    else:
+        pass
+    return Smart_pass
 
 def out_of_memory_handle(driver, report_name):
     if driver.page_source.__contains__('System.OutOfMemoryException'):
@@ -206,7 +228,7 @@ def out_of_memory_handle(driver, report_name):
 
 
 def read_report_names(enterprise_or_standard):
-    file_name = r'C:\Users\yyang212\PycharmProjects\PythonStudy\SMART\Smart_regression\resources\IPReport_names_updated.txt'
+    file_name = r'C:\Users\yyang212\PycharmProjects\PythonStudy\SMART\Smart_regression\resources\IPReport_names.txt'
     print('read_report_names:' + file_name)
     report_file = open(file_name, 'r')
     lines = report_file.readlines()
@@ -246,3 +268,23 @@ def take_screenshot(driver, report_name):
     # if pic exists, delete it
     tools.file_exist_delete(picture_path)
     driver.save_screenshot(picture_path)
+
+def write_test_result_as_docx(report_name, test_case):
+
+    if os.path.exists('../results/'+settings.test_result_file_name):
+        document = Document('../results/'+settings.test_result_file_name)
+    else:
+        document = Document()
+    document.add_heading(test_case, level=1)
+    document.add_picture(report_name, width=Inches(6.43))
+    document.save('../results/'+settings.test_result_file_name)
+
+def write_test_result_as_docx_com(screenshot_path, heading_value):
+
+    if os.path.exists('../results/'+settings.test_result_file_name):
+        document = Document('../results/'+settings.test_result_file_name)
+    else:
+        document = Document()
+    document.add_heading(heading_value, level=1)
+    document.add_picture(screenshot_path, width=Inches(6.43))
+    document.save('../results/'+settings.test_result_file_name)

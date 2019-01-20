@@ -1,0 +1,37 @@
+-APC Reimbursement Information	-standard no-default filter
+-Evaluation & Management Clinical Profile	-standard
+-Outpatient Flag Information-standard   no-default filter
+-Outpatient Flag Information by Facility-standard no-default filter
+Financial Class Information	-standard
+Patient Status Mapping Information	-standard
+APC Contribution to SMI by Payer-standard
+CCI Flags by Body System	-standard
+Flag Comparison	-standard
+Medicare Medical Necessity Flags	-standard
+Payer OCE Claim Disposition	-standard
+Visit Flag Summary	-standard
+Frequency Analysis	-standard
+Frequency Summary	-standard
+Review Worksheet	-standard
+Visits Processed on Import	-standard
+Coder Profile	-standard
+SMART Results Summary	-standard
+Visit Change Results	-standard
+Visit Selection Summary	-standard
+Visit Summary	-standard
+APC Reimbursement Visit Summary	-standard
+Discrepancy Analysis	-standard
+Estimated Line Item Reimbursement Impact Summary by Body System	-standard
+Estimated Reimbursement Impact Summary	-standard
+Reimbursement Change Summary	-standard
+Reimbursement Version Detail	-standard
+SMART Reimbursement Activity by Year	-standard
+Visit Reimbursement Summary	-standard
+Brief Visit Listing	-standard
+Detailed Visit Listing	-standard
+Flag Comparison	-enterprise
+Medicare Medical Necessity Flags	-enterprise
+SMART Results Summary	-enterprise
+Reimbursement Change Summary	-enterprise
+SMART Reimbursement Activity by Year	-enterprise
+Visit Reimbursement Summary	-enterprise

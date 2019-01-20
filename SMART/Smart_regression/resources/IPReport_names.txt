@@ -1,12 +1,12 @@
--Security Administration Information by Role	-standard
+Security Administration Information by Role	-standard
 Coder Information	-standard
--Flag Management Setting Audit	-standard
--DRG Listing by Payer	-standard
+Flag Management Setting Audit	-standard
+DRG Listing by Payer	-standard
 Financial Class Mapping Information	-standard
 Inpatient Flag Information	-standard
 Inpatient Flag Information by Facility	-standard
--Patient Status Mapping Information	-standard
--Data Comparison	-standard
+Patient Status Mapping Information	-standard
+Data Comparison	-standard
 -PEPPER Report	-standard
 Case Listing	-standard
 Case Version Comparison	-standard
@@ -15,7 +15,7 @@ Case Mix Index (CMI) Analysis	-standard
 Case Mix Index (CMI) Comparison	-standard
 Case-Mix by Payer by Month	-standard
 Medicare Case-Mix by Month	-standard
-Attending Physician Frequency by DRG*	-standard
+Attending Physician Frequency by DRG	-standard
 Discharges by Grouper Version - DRG	-standard
 DRG Change Condition Detail	-standard
 DRG Change Impact	-standard
@@ -36,7 +36,7 @@ Principal Procedures	-standard
 Top 50 CC/MCC Diagnoses	-standard
 Top 50 Diagnoses by Present on Admission(POA)	-standard
 Cases Processed on Import	-standard
-Data Validation	-standard
+-Data Validation	-standard
 Frequency	-standard
 IP Worksheet	-standard
 Average Length of Stay by Payer by Month	-standard
@@ -61,9 +61,9 @@ Reimbursement Change Summary	-standard
 SMART Reimbursement Activity	-standard
 Data Comparison	-enterprise
 Case Mix Index (CMI) Analysis	-enterprise
+-DRG Contribution to Payer CMI	-enterprise
 Case Mix Index (CMI) Comparison	-enterprise
-DRG Clinical Profile	-enterprise
-DRG Contribution to Payer CMI	-enterprise
+DRG Clinical Profile-enterprise
 DRG Frequency	-enterprise
 DRG Illness Severity Score Comparison by Payer	-enterprise
 Medicare Post-Acute Care (PAC) DRG Frequency by Patient Status	-enterprise
@@ -72,11 +72,11 @@ Diagnosis Analysis by Present on Admission(POA)	-enterprise
 Medicare Hospital-Acquired Conditions	-enterprise
 Top 50 CC/MCC Diagnoses	-enterprise
 Top 50 Diagnoses by Present on Admission(POA)	-enterprise
-Enterprise Data Validation	-enterprise
+-Enterprise Data Validation	-enterprise
 Coding-DRG Accuracy Analysis	-enterprise
-Flag Rate by Facility by Month*	-enterprise
+Flag Rate by Facility by Month	-enterprise
 Profile	-enterprise
-SMART Case Review Results*	-enterprise
+SMART Case Review Results	-enterprise
 SMART Report Card	-enterprise
 SMART Results Summary	-enterprise
 SMART Results Summary with CMI by Facility	-enterprise
