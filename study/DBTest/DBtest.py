@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
     def test_get_all(self):
         con = DBconnectionsTool.connection.connect_mysql(self)
 
-        sql = 'SELECT * FROM 51job_position_v3 limit 0,10'
+        sql = 'SELECT * FROM 51job_position_v3'
 
         cursor = con.cursor()
         cursor.execute(sql)

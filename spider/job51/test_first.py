@@ -1,6 +1,8 @@
 import unittest, requests, time, re
 import tools.DBconnectionsTool as DBconnectionsTool
 from bs4 import BeautifulSoup
+from spider.job51 import assists
+from parameterized import parameterized
 
 
 class position(object):
@@ -14,8 +16,14 @@ class position(object):
         self.quality = quality
 
 
+def get_parameters():
+    postions_ = ['功能测试', '自动化测试', '测试开发', 'AI测试']
+    return postions_
+
+
 class MyTestCase(unittest.TestCase):
-    positions = ['功能测试', '软件测试', '自动化测试 软件', '测试开发', 'AI测试']
+    positions = ['功能测试', '自动化测试', '测试开发', 'AI测试']
+    positions_copy = ['功能测试', '软件测试', '自动化测试', '测试开发', 'AI测试']
     url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,测试工程师,2,1.html'
     headers = {
         'Referrer Policy': 'no-referrer-when-downgrade',
@@ -56,7 +64,8 @@ class MyTestCase(unittest.TestCase):
 
         return detail
 
-    def parse_html(self, url):
+    def parse_html(self, url, page_index, total_pages):
+        go_on = True
         # url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,软件测试,2,94.html'
         parser = BeautifulSoup(self.connect(url), features="html.parser")
         span_tests = parser.select('div#resultList div.el')
@@ -67,11 +76,17 @@ class MyTestCase(unittest.TestCase):
         for i in span_tests:
 
             position_ = i.select_one('p span a').text.strip()
-            company = i.select_one('span.t2 a').text
-            location = i.select_one('span.t3').text
-            salary = i.select_one('span.t4').text
+            company = i.select_one('span.t2 a').text.strip()
+            location = i.select_one('span.t3').text.strip()
+            salary = assists.format_salary(i.select_one('span.t4').text.strip())
+            if salary == '':
+                salary = 'Null'
 
             date_tem = i.select_one('span.t5').text
+
+            if '12-' in date_tem:
+                go_on = False
+                break
 
             # 区分一下19年和18年
             if '01-' in date_tem:
@@ -86,7 +101,7 @@ class MyTestCase(unittest.TestCase):
             position = {}
 
             if '测试' not in position_:
-                pass
+                continue
             else:
                 position['position_'] = position_
 
@@ -95,39 +110,48 @@ class MyTestCase(unittest.TestCase):
             position['salary'] = salary
             position['date'] = date
             position['detail_description'] = detail_description
-
-            query = """INSERT INTO 51job_position_v3(position,company,location,salary,date,description)VALUES
-             ('{0}', '{1}', '{2}','{3}','{4}','{5}')""".format(
-                position_, company, location, salary, date, detail_description)
+            print(position)
+            avg_salary = assists.format_salary_final(assists.format_salary(salary))
+            query = """INSERT INTO 51job_position_v4(position,company,location,salary,avg_salary,date,description)VALUES
+             ('{0}', '{1}', '{2}','{3}',{4},'{5}','{6}')""".format(
+                position_, company, location, salary, avg_salary, date, detail_description)
             DBconnectionsTool.connection.insert(self, query=query)
             positions.append(position)
 
         for i in positions:
             print(i)
 
+        if page_index == total_pages:
+            go_on = False
+
+        return go_on
+
     def test_ord_field(self):
         position = '软件测试'
         page_index = '1'
-        url_ = 'https://search.51job.com/list/000000,000000,0000,00,9,99,软件测试,2,1.html?ord_field=1'
+        # url_ = 'https://search.51job.com/list/000000,000000,0000,00,9,99,软件测试,2,1.html?ord_field=1'
+        url_ = 'https://search.51job.com/list/000000,000000,0000,00,9,99,软件测试,2,1.html'
         total_pages = self.get_total_pages(url=url_)
 
+    # @parameterized.expand(get_parameters)
     def test_get_started(self):
+        postions_ = ['软件测试', '自动化测试', '测试开发', 'AI测试', '功能测试', '软件性能测试']
+        for p in postions_:
+            position = p
+            url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html?ord_field=1'.format(
+                position)
+            total_pages = self.get_total_pages(url_base_positin)
+            # total_pages = 20
 
-        position = '软件测试'
+            for page_index in range(1, total_pages + 1):
+                url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html?'.format(
+                    position, page_index)
+                print(url)
+                go_on = self.parse_html(url, page_index, total_pages)
+                if not go_on:
+                    break
 
-        url_base_positin = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,1.html?ord_field=1'.format(
-            position)
-        total_pages = self.get_total_pages(url_base_positin)
-        # total_pages = 20
-
-        for page_index in range(1, total_pages + 1):
-            url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,{0},2,{1}.html?ord_field=1'.format(position,
-                                                                                                               page_index)
-            print(url)
-            print('???????????????')
-            self.parse_html(url)
-
-    def test_filters(self):
+    def Itest_filters(self):
         # Test manager,Senior Tester, Automation Engineer,
         # 查找既包含软件又包含测试的职位；查询不包含软件，去掉包含硬件的职位
         # 只选择最近一天或者两天的职位

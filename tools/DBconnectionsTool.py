@@ -1,13 +1,45 @@
 from mysql import connector
 from mysql.connector.cursor import MySQLCursorDict
 
-class connection(object):
 
+class connection(object):
     con = ''
+
+    def get_sql_excuted_result(sql):
+        con = ''
+        result = ''
+        config = {
+            'host': 'localhost',
+            'port': 3306,
+            'user': 'root',
+            'passwd': 'test1234',
+            'db': 'spider',
+            'charset': 'utf8'
+        }
+        try:
+            con = connector.connect(**config)
+            # 使用cursor()方法获取操作游标
+            cursor = con.cursor()
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            # 提交到数据库执行
+            con.commit()
+            con.close()
+
+        except Exception as e:
+            # Rollback in case there is any error
+            print('---------------------------')
+            print(sql)
+            print('Rollback in case there is any error: ')
+            print(e)
+            self.con.rollback()
+            # 关闭数据库连接
+            self.con.close()
+        return result
 
     def connect_mysql(self):
         config = {
-            'host': '127.0.0.1',
+            'host': 'localhost',
             'port': 3306,
             'user': 'root',
             'passwd': 'test1234',
