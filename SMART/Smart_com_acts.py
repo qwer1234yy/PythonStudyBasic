@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import SMART.Smart_common_settings as settings
+import SMART.Smart_tools.report_tools as report_tools
 import time
 
 
@@ -51,11 +52,18 @@ def wait_invisibility_of_element_located(driver):
 
 def wait_until_title_contains(driver, report):
 
-    try:
-        WebDriverWait(driver, settings.login_sleep).until(EC.title_contains(report))
-    except:
-        print('---try--except------' + report + '-title-not found--in view report page---')
-        # continue
+    Smart_pass = True
+    Smart_pass = report_tools.error_occurred_handle(driver, report)
+    if Smart_pass:
+        try:
+            WebDriverWait(driver, settings.login_sleep).until(EC.title_contains(report))
+        except:
+            print('---try--except------' + report + '-title-not found--in view report page---')
+            Smart_pass = False
+    else:
+        pass
+
+    return Smart_pass
 
 
 def wait_presence_element_xpath(driver, xpath):

@@ -9,7 +9,8 @@ import SMART.Smart_tools.report_tools as report_tools
 
 class reports(object):
 
-    def go_to_report_ip_Enterstand(driver):
+
+    def go_to_report_ip(driver):
 
         ACT.wait_element_clickable(driver, By.ID, 'aSlideMenuSelModuleSIP101')
         ACT.wait_invisibility_of_element_located(driver)
@@ -19,69 +20,38 @@ class reports(object):
         # Click "report"
         report = driver.find_element_by_id('aIPModuleWorkplans')
         report.click()
-        ACT.wait_presence_element_xpath(driver, '//span[text()="Inpatient Enterprise Reports"]')
+        # ACT.wait_presence_element_xpath(driver, '//span[text()="Inpatient Enterprise Reports"]')
 
+    def go_to_report_op(driver):
+
+        # click "Outpatient"
+        ACT.wait_element_clickable(driver, By.ID, 'aSlideMenuSelModuleOP101')
+        outpatient_enter = driver.find_element_by_id('aSlideMenuSelModuleOP101')
+        ACT.wait_invisibility_of_element_located(driver)
+        outpatient_enter.click()
+
+
+        # click "Reports"
+        ACT.wait_element_clickable(driver, By.ID, 'aOPModuleWorkplans')
+        OP_report_enter = driver.find_element_by_id('aOPModuleWorkplans')
+        OP_report_enter.click()
+
+
+    def go_to_report_enterstand(driver):
+
+        ACT.wait_presence_element_xpath(driver, '//span[contains(text(),"Enterprise Reports")]')
         # Click "Inpatient Enterprise Reports"
-        enterprice_link = driver.find_element_by_xpath('//span[text()="Inpatient Enterprise Reports"]')
+        enterprice_link = driver.find_element_by_xpath('//span[contains(text(),"Enterprise Reports")]')
         enterprice_link.click()
         # wait
         ACT.wait_invisibility_of_element_located(driver)
 
-    def go_to_report_ip_Standard(driver):
-        # Click "inpatient"
-        ACT.wait_element_clickable(driver, By.ID, 'aModuleSIP101')
-        ACT.wait_invisibility_of_element_located(driver)
-        inpatient = driver.find_element_by_id('aModuleSIP101')
-        inpatient.click()
+    def go_to_report_standard(driver):
 
-        # Click "report"
-        report = driver.find_element_by_id('aIPModuleWorkplans')
-        report.click()
-        ACT.wait_presence_element_xpath(driver, '//span[text()="Inpatient Standard Reports"]')
-
+        ACT.wait_presence_element_xpath(driver, '//span[contains(text(),"Standard Reports")]')
         # Click "Inpatient Standard Reports"
-        standard_link = driver.find_element_by_xpath('//span[text()="Inpatient Standard Reports"]')
+        standard_link = driver.find_element_by_xpath('//span[contains(text(),"Standard Reports")]')
         standard_link.click()
-        # wait
-        ACT.wait_invisibility_of_element_located(driver)
-
-    def go_to_op_enterprise(driver):
-        # click "Outpatient"
-        ACT.wait_element_clickable(driver, By.ID, 'aSlideMenuSelModuleOP101')
-        outpatient_enter = driver.find_element_by_id('aSlideMenuSelModuleOP101')
-        ACT.wait_invisibility_of_element_located(driver)
-        outpatient_enter.click()
-
-        # click "Reports"
-        ACT.wait_element_clickable(driver, By.ID, 'aOPModuleWorkplans')
-        OP_report_enter = driver.find_element_by_id('aOPModuleWorkplans')
-        OP_report_enter.click()
-
-        # Click "Inpatient Enterprise Reports"
-        xpath = '//span[text()="Outpatient Enterprise Reports"]'
-        ACT.wait_element_clickable(driver, By.XPATH, xpath)
-        enterprice_link = driver.find_element_by_xpath(xpath)
-        enterprice_link.click()
-        # wait
-        ACT.wait_invisibility_of_element_located(driver)
-
-    def go_to_op_standard(driver):
-        # click "Outpatient"
-        ACT.wait_element_clickable(driver, By.ID, 'aSlideMenuSelModuleOP101')
-        outpatient_enter = driver.find_element_by_id('aSlideMenuSelModuleOP101')
-        ACT.wait_invisibility_of_element_located(driver)
-        outpatient_enter.click()
-
-        # click "Reports"
-        ACT.wait_element_clickable(driver, By.ID, 'aOPModuleWorkplans')
-        OP_report_enter = driver.find_element_by_id('aOPModuleWorkplans')
-        OP_report_enter.click()
-
-        # Click "Outpatient Standard Reports"
-        xpath = '//span[text()="Outpatient Standard Reports"]'
-        ACT.wait_element_clickable(driver, By.XPATH, xpath)
-        enterprice_link = driver.find_element_by_xpath(xpath)
-        enterprice_link.click()
         # wait
         ACT.wait_invisibility_of_element_located(driver)
 
@@ -120,12 +90,19 @@ class reports(object):
 
         print('---go_to_report_CS---double_click------')
         ActionChains(driver).double_click(Case_Listing_link).perform()
+        # try:
+        #    ACT.wait_presence_element_xpath(driver,'//span[@id="dvWorkplanCategoryRepeaterMS"]')
+        #    ActionChains(driver).double_click(Case_Listing_link).perform()
+        # except:
+        #     pass
+
         ACT.wait_invisibility_of_element_located(driver)
-        ACT.wait_element_clickable(driver, By.ID, 'btnViewReport')
-        time.sleep(5)
+
 
     def add_filters_besides_default_ones(driver):
 
+        ACT.wait_element_clickable(driver, By.ID, 'btnViewReport')
+        time.sleep(5)
         # set up filters
         ACT.wait_element_clickable(driver, By.ID, 'btnInsertClause')
         add_icon = driver.find_element_by_id('btnInsertClause')
@@ -194,21 +171,18 @@ class reports(object):
         btnViewReport = driver.find_element_by_id('btnViewReport')
         ACT.wait_element_clickable(driver, By.ID, 'btnViewReport')
         ACT.wait_invisibility_of_element_located(driver)
+        ACT.wait_document_completed(driver)
+        time.sleep(5)
         btnViewReport.click()
 
         time.sleep(0.5)
         alert = driver.find_element_by_id('dvSlidingMessageControl').value_of_css_property('display')
 
-        print('alertalertalertalertalertalertalert'+ alert)
         if alert in 'block':
-            print('YYYYYYYYYYYYYYYYYYYYYY')
             report_tools.no_default_filter_handle(driver, report_name)
             btnViewReport.click()
-            pass
-
         else:
-
-            print('LLLLLLLLLLLLLLLLLLLLLLLLLLL')
+             pass
 
         ACT.wait_invisibility_of_element_located(driver)
         time.sleep(1)
@@ -216,27 +190,32 @@ class reports(object):
 
     def switch_to_report_view_page(driver, report_name):
 
+        Smart_pass = True
         view_report_window = driver.window_handles[1]
         driver.switch_to.window(view_report_window)
         print('------switch_to.window------' + report_name)
         if report_name == 'DRG Change Condition Detail':
-            ACT.wait_until_title_contains(driver, 'DRG Change Detail')
+            Smart_pass = ACT.wait_until_title_contains(driver, 'DRG Change Detail')
         elif report_name == 'Top 50 Diagnoses by Present on Admission(POA)':
-            ACT.wait_until_title_contains(driver, 'Top 50 Other Diagnoses by Present on Admission(POA)')
+            Smart_pass = ACT.wait_until_title_contains(driver, 'Top 50 Other Diagnoses by Present on Admission(POA)')
         elif report_name == 'Management Clinical Profile':
-            ACT.wait_until_title_contains(driver, 'Evaluation')
+            Smart_pass = ACT.wait_until_title_contains(driver, 'Evaluation')
         elif 'Frequency' in report_name:
-            ACT.wait_until_title_contains(driver, 'Frequency')
+            Smart_pass = ACT.wait_until_title_contains(driver, 'Frequency')
         elif 'DRG Contribution to Payer CMI' in report_name:
-            ACT.wait_until_title_contains(driver, 'DRG Contribution to CMI by Payer')
+            Smart_pass = ACT.wait_until_title_contains(driver, 'DRG Contribution to CMI by Payer')
+        elif report_name in report_name:
+            Smart_pass = ACT.wait_until_title_contains(driver, report_name)
         else:
-            ACT.wait_until_title_contains(driver, report_name)
+            Smart_pass = False
+            return Smart_pass
 
         print(driver.title)
         # wait report load fully
-        Smart_actions.wait_report_loaded(driver, report_name)
-
+        if Smart_pass:
+            Smart_actions.wait_report_loaded(driver, report_name)
         print('switch_to_report_view_page---------end')
+        return Smart_pass
 
     def close_report_view_window(driver):
         handles = driver.window_handles

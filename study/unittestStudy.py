@@ -10,30 +10,38 @@ class PythonOrgSearch(unittest.TestCase):
     b=4
 
     def setUp(self):
-        print('setup')
+        pass
 
-    @unittest.expectedFailure
+
     def test_test1(self):
 
-        self.assertEqual(self.a,self.b,'a not equal b')
+        # self.assertNotIn(member='test',container='testTTTT')
+        # assert 'test' not in 'test test'
+        # self.assertEqual(self.a, self.b, 'a not equal b')
+        AssertionError().with_traceback(tb=[T])
+        print('afet')
 
-        print('test_test1')
 
-    def test_test2(self):
-        print('test_test2')
 
-    def test_test3(self):
-        print('test_test3')
 
-    def test_test4(self):
-        print('test_test4')
-
+    # @unittest.expectedFailure
+    # def test_test2(self):
+    #     print('test_test2')
+    #
+    # def test_test3(self):
+    #     print('test_test3')
+    #
+    # def test_test4(self):
+    #     print('test_test4')
+    #
     def tearDown(self):
+
         print('tearDown')
 
 
 if __name__ == "__main__":
-    suite = unittest.TestSuite()
-    suite.addTest(PythonOrgSearch('test_test2'))
-    result = unittest.TextTestRunner().run(suite)
-    print(result.expectedFailures)
+    unittest.main()
+    # suite = unittest.TestSuite()
+    # suite.addTest(PythonOrgSearch('test_test1'))
+    # result = unittest.TextTestRunner().run(suite)
+    # print(result.expectedFailures)

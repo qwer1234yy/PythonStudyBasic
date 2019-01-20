@@ -1,1 +1,1 @@
-base_url = 'http://strzw058051/SMARTSolutions/'
+base_url = 'http://strzw058080/SMARTSolutions/'
