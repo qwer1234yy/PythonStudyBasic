@@ -1,8 +1,8 @@
 import xlrd, xlwt, openpyxl, os
-import sys_tools
+from SMART_auto import sys_tools
 from docx import Document
-from modals.report_test_result import result_report
-from common import settings
+from SMART_auto.modals.report_test_result import result_report
+from SMART_auto.common import settings
 from docx.shared import Inches
 from bs4 import BeautifulSoup
 
@@ -192,7 +192,6 @@ def save_reports_screenshot_as_html(result_report):
 
 
 def write_test_result_report_word(result_report):
-
     image_path = sys_tools.base_path + '\\auto_results\\screenshots\\' + result_report.screen_shot
     word_result_path = sys_tools.base_path + '\\auto_results\\test_results\\' + settings.test_result_file_name_word
     # image_path = '../auto_results/screenshots/' + result_report.screen_shot
