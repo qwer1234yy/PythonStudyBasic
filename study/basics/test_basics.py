@@ -3,7 +3,7 @@ import unittest
 
 class MyTestCase(unittest.TestCase):
     def test_range(self):
-        for i in range(1, 5):
+        for i in range(0, 1):
             print(i)
 
     def test_equal(self):
@@ -14,6 +14,19 @@ class MyTestCase(unittest.TestCase):
         keys = list(dic.keys())
         for i in range(keys.__len__()):
             print(keys[i])
+
+    def test_list(self):
+        list_ = [1, 2, 5, 6]
+        list_.insert(2, 3)
+        list_.insert(3, 4)
+        print(list_.__len__())
+        for i in list_:
+            if i == 2:
+                list_.insert(2, 3)
+            if i == 3:
+                list_.insert(3, 4)
+
+
 
 
 if __name__ == '__main__':

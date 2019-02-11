@@ -71,6 +71,7 @@ def timeout_handle(driver, report_name, timeout):
     reports.reports.view_report(driver)
     reports.reports.switch_to_report_view_page(driver, report_name)
 
+
 def no_default_filter_handle(driver, report_name):
     # click "+" icon
     Smart_actions.wait_element_clickable(driver, By.ID, 'btnInsertClause')
@@ -92,7 +93,9 @@ def no_default_filter_handle(driver, report_name):
     for li in fields_lis:
         print(li.text)
 
-    if report_name in ['Outpatient Flag Information by Facility','Outpatient Flag Information','APC Reimbursement Information','Coder Information','Inpatient Flag Information','Inpatient Flag Information by Facility']:
+    if report_name in ['Outpatient Flag Information by Facility', 'Outpatient Flag Information',
+                       'APC Reimbursement Information', 'Coder Information', 'Inpatient Flag Information',
+                       'Inpatient Flag Information by Facility']:
         field_name = fields_lis[0].text
         operator_value = '= Equal'
         field_name_value = '1/2/2019'
@@ -132,7 +135,7 @@ def no_default_filter_handle(driver, report_name):
         value_input.click()
         value_input.send_keys('1')
 
-    elif field_name in ['Flag Group - Primary','Flag Group']:
+    elif field_name in ['Flag Group - Primary', 'Flag Group']:
         # click search icon
         value_a_xpath = './/div[@id="customsearch-grid"]/div[@class="k-grid-content"]/table/tbody/tr[last()]/td[5]/div/div[4]/span/a'
         ACT.wait_element_clickable(driver, By.XPATH, value_a_xpath)
@@ -148,6 +151,7 @@ def no_default_filter_handle(driver, report_name):
 
         value_select.click()
 
+
 def error_occurred_handle(driver, report_name):
     Smart_pass = True
     if driver.page_source.__contains__('Error Occurred'):
@@ -160,6 +164,7 @@ def error_occurred_handle(driver, report_name):
     else:
         pass
     return Smart_pass
+
 
 def out_of_memory_handle(driver, report_name):
     if driver.page_source.__contains__('System.OutOfMemoryException'):
@@ -269,22 +274,22 @@ def take_screenshot(driver, report_name):
     tools.file_exist_delete(picture_path)
     driver.save_screenshot(picture_path)
 
-def write_test_result_as_docx(report_name, test_case):
 
-    if os.path.exists('../results/'+settings.test_result_file_name):
-        document = Document('../results/'+settings.test_result_file_name)
+def write_test_result_as_docx(report_name, test_case):
+    if os.path.exists('../results/' + settings.test_result_file_name):
+        document = Document('../results/' + settings.test_result_file_name)
     else:
         document = Document()
     document.add_heading(test_case, level=1)
     document.add_picture(report_name, width=Inches(6.43))
-    document.save('../results/'+settings.test_result_file_name)
+    document.save('../results/' + settings.test_result_file_name)
+
 
 def write_test_result_as_docx_com(screenshot_path, heading_value):
-
-    if os.path.exists('../results/'+settings.test_result_file_name):
-        document = Document('../results/'+settings.test_result_file_name)
+    if os.path.exists('../results/' + settings.test_result_file_name):
+        document = Document('../results/' + settings.test_result_file_name)
     else:
         document = Document()
     document.add_heading(heading_value, level=1)
     document.add_picture(screenshot_path, width=Inches(6.43))
-    document.save('../results/'+settings.test_result_file_name)
+    document.save('../results/' + settings.test_result_file_name)

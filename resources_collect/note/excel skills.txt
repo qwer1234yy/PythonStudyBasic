@@ -1,0 +1,2 @@
+=VLOOKUP(A3,B:B,1,TRUE)
+=IF(A1=B1,1,0)
