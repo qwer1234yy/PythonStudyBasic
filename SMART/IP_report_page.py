@@ -362,11 +362,12 @@ def swiitch_to_report_view_page(driver, report, report_case):
 def export_report(driver, report):
     print('-------------export_report------------------')
     # click "format"
-    # case list RdlViewer_ctl01_ctl05_ctl00
+    # case list RdlViewer_ctl01_ctl05_ctl00 RdlViewer_ctl01_ctl05_ctl00
     if report == 'Case Listing':
       format_list = driver.find_element_by_id('RdlViewer_ctl01_ctl05_ctl00')
     else:
       format_list = driver.find_element_by_id('RW_ReportToolbar_ExportGr_FormatList_DropDownList')
+
     format_list.click()
     # select a formt
     PDF = driver.find_element_by_xpath("//option[text()='Acrobat (PDF) file']")

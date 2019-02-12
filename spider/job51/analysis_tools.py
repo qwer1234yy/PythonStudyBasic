@@ -1,5 +1,6 @@
 import unittest
 from tools import DBconnectionsTool
+from spider.job51 import queries
 from spider.job51.test_first import position
 from spider.job51 import assists
 
@@ -10,16 +11,14 @@ class AnalysisTool(unittest.TestCase):
         print(assists.format_salary_final('15.0-20.0千/月'))
 
     def test_get_count_per_city(self):
-        sql = 'SELECT COUNT(*) as count, LEFT(location,2) as location from 51job_position_v3 GROUP BY LEFT(location,2) ORDER BY count DESC LIMIT 20'
-        result = DBconnectionsTool.connection.get_sql_excuted_result(sql)
+        result = DBconnectionsTool.connection.get_sql_excuted_result(queries.sql_get_count_per_city)
         position_count_per_city = {}
         for i in result:
             position_count_per_city[i[1]] = i[0]
         return position_count_per_city
 
     def test_get_max_salary_per_city(self):
-        sql = 'SELECT COUNT(*) as count, LEFT(location,2) as location from 51job_position_v3 GROUP BY LEFT(location,2) ORDER BY count DESC LIMIT 20'
-        result = DBconnectionsTool.connection.get_sql_excuted_result(sql)
+        result = DBconnectionsTool.connection.get_sql_excuted_result(queries.sql_get_max_salary_per_city)
         position_count_per_city = {}
         for i in result:
             position_count_per_city[i[1]] = i[0]
