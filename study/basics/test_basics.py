@@ -1,5 +1,5 @@
 import unittest
-import selenium
+from selenium import webdriver
 
 class MyTestCase(unittest.TestCase):
     def test_math(self):
@@ -17,19 +17,14 @@ class MyTestCase(unittest.TestCase):
         for i in range(keys.__len__()):
             print(keys[i])
 
-    def test_list(self):
-        list_ = [1, 2, 5, 6]
-        list_.insert(2, 3)
-        list_.insert(3, 4)
-        print(list_.__len__())
-        for i in list_:
-            if i == 2:
-                list_.insert(2, 3)
-            if i == 3:
-                list_.insert(3, 4)
-
-
-
+    def test_selenium(self):
+        print('sssss')
+        driver = webdriver.Firefox()
+        print('test se -    ')
+        driver.get('https://www.baidu.com')
+        print('test selenium')
+        time.sleep(5)
+        driver.quit()
 
 if __name__ == '__main__':
     unittest.main()
