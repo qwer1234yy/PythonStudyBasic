@@ -1,5 +1,5 @@
 import unittest
-
+import selenium
 
 class MyTestCase(unittest.TestCase):
     def test_math(self):
