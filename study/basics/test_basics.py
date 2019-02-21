@@ -2,6 +2,8 @@ import unittest
 
 
 class MyTestCase(unittest.TestCase):
+    def test_math(self):
+        print(2**6)
     def test_range(self):
         for i in range(0, 1):
             print(i)
