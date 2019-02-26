@@ -5,6 +5,30 @@ import matplotlib.pyplot as plt
 
 
 class MyTestCase(unittest.TestCase):
+
+    def test_analysis_report_screenshot(self):
+        pic = imageio.imread('pics/Cases Processed on Import.png')
+        # print(pic.shape)
+        # print(pic[:,:,3])
+        tem_pic = pic == 255
+        if tem_pic.any() is True:
+            print(tem_pic)
+
+        # plt.figure(figsize=(10, 10))
+        # plt.imshow(tem_pic)
+        # plt.show()
+
+    def test_Satellite_Image_Processing(self):
+        pic = imageio.imread('pics/Satellite_Image_Processing01.JPG')
+        # print(pic.shape)
+
+        red_mask = pic[:, :, 0] < 180
+        pic[red_mask] = 0
+
+        plt.figure(figsize=(10, 10))
+        plt.imshow(pic)
+        plt.show()
+
     def test_something(self):
         pic = imageio.imread('pics/demo_1.jpg')
         # plt.figure(figsize=(5,5))
@@ -20,6 +44,7 @@ class MyTestCase(unittest.TestCase):
 
         plt.imshow(split_img)
         plt.show()
+
     def test_Process_Pixel(self):
         pic = imageio.imread('pics/test01.jpg')
 
@@ -31,6 +56,7 @@ class MyTestCase(unittest.TestCase):
 
         plt.imshow(pic)
         plt.show()
+
     def test_masking_pic(self):
         pic = imageio.imread('pics/test01.jpg')
         # seperate the row and column values
