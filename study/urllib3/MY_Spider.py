@@ -12,7 +12,7 @@ win_unicode_console.enable()
 
 class Spider():
 	def __init__(self):
-		print('[INFO]:Maoyan Spider...')
+		print('[INFO]:Maoyan Spider.........')
 		print('[Author]:Charles')
 		self.url = 'http://maoyan.com/films?offset={}'
 		self.domain = 'http://maoyan.com'
