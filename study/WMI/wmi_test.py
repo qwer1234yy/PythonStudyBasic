@@ -1,4 +1,5 @@
-import unittest, wmi
+import unittest, wmi, re, string, os
+from subprocess import Popen, PIPE
 
 
 class MyTestCase(unittest.TestCase):
@@ -41,6 +42,11 @@ class MyTestCase(unittest.TestCase):
         computer = wmi.WMI()
         perfor = computer.Win32_Perf()[0]
         print(perfor.Caption)
+    def test_Win32_PerfFormattedData_class(self):
+        computer = wmi.WMI()
+        perfor = computer.Win32_PerfFormattedData()[0]
+        print(perfor)
+
 
     def test_CIM_Memory_class(self):
         computer = wmi.WMI()
@@ -48,6 +54,72 @@ class MyTestCase(unittest.TestCase):
         print(CIM_Memory_[0])
         print(CIM_Memory_[1])
 
+    def test_GetServiceStatus(self, caption):
+        self.caption = caption
+        c = wmi.WMI()
+        for svc in self.server.Win32_Service(Caption=self.caption):
+            state = svc.State
+        print(str(state))
+
+    def test_GetCpuList(self):
+        c = wmi.WMI()
+        cpulist = []
+        cpudict = {}
+        for cpu in c.Win32_Processor():
+            name = str(cpu.Name).strip()
+        deviceid = str(cpu.DeviceID)
+        cpudict = {deviceid: name}
+        cpulist.append(cpudict)
+        print(cpulist)
+    def test_GetLocalDrives(self):
+        #get size of disk
+        ip = '172.24.58.80'
+        username = 'MSO\yang.yang'
+        password = 'pwcmsoYY123'
+        c = wmi.WMI(ip, user=username, password=password)
+
+        driveList = []
+        for disk in c.Win32_LogicalDisk():
+            if disk.DriveType == 3:
+                driveList.append(str(disk.Name))
+                print(float(disk.Size) /1073741824.0)
+                print(float(disk.FreeSpace) / 1073741824.0)
+        print(driveList)
+
+    def test_get_uptime(self):
+        ip = '172.24.58.80'
+        username = 'MSO\yang.yang'
+        password = 'pwcmsoYY123'
+        c = wmi.WMI(ip, user=username, password=password)
+        # secs_up = int([uptime.SystemUpTime for uptime in c.Win32_PerfFormattedData_PerfOS_System()][0])
+        # hours_up = secs_up / 3600
+        # print(hours_up)
+
+        # for cpu in c.Win32_Processor():
+        #     print(cpu)
+        utilizations = [cpu.LoadPercentage for cpu in c.Win32_Processor()]
+        print(utilizations)
+        utilization = int(sum(utilizations) / len(utilizations))  # avg all cores/processors
+        print(len(utilizations))
+        print(sum(utilizations))
+        print(utilization)
+
+        # available_mbytes = int([mem.AvailableMBytes for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
+        # print(available_mbytes)
+        # Available Memory
+        # available_mbytes = int([mem.AvailableMBytes for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
+        # print(available_mbytes)
+
+        # Memory Used
+        # pct_in_use = int([mem.PercentCommittedBytesInUse for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
+        # print(pct_in_use)
+
+        # test ping
+        # host_name = '172.24.58.80'
+        # p = Popen('ping -n 1 ' + host_name, stdout=PIPE)
+        # m = re.search('Average = (.*)ms', p.stdout.read())
+        # print(p)
+        # print(m)
 
 if __name__ == '__main__':
     unittest.main()

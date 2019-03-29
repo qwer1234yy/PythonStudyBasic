@@ -31,7 +31,8 @@ class MyTestCase(unittest.TestCase):
 
         try:
             print("Establishing connection to %s" % ip)
-            connection = wmi.WMI(ip, user=username, password=password)
+            # connection = wmi.WMI(ip, user=username, password=password)
+            connection = wmi.WMI()
 
             # ipconfig_result = connection.Win32_Process.Create(CommandLine="cmd.exe /c ipconfig")
             # print(ipconfig_result)
@@ -40,7 +41,7 @@ class MyTestCase(unittest.TestCase):
             # print(cmd_help)
             # 'taskkill /F /PID pid_number'
             # notebook 15584 excel 13896
-            kill_process = connection.Win32_Process.Create(CommandLine="cmd.exe /c wmic logicaldisk get size,freespace,caption")
+            kill_process = connection.Win32_Process.Create(CommandLine="cmd.exe /c taskkill /F /PID 15584")
             print(kill_process)
             # cmd:
             # shutdown /r --to Restart your windows PC; "shutdown /s" to Shutdown your computer;
