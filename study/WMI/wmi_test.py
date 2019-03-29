@@ -1,8 +1,13 @@
 import unittest, wmi, re, string, os
 from subprocess import Popen, PIPE
+import subprocess
 
 
 class MyTestCase(unittest.TestCase):
+    def test_subprocess(self):
+        # print(subprocess.call(['ipconfig']))
+        print(subprocess.call(["dir"], shell=True))
+
     def test_basic_connection(self):
         # "Check that a standard connection works"
         result = wmi.WMI()
@@ -97,13 +102,13 @@ class MyTestCase(unittest.TestCase):
 
         # for cpu in c.Win32_Processor():
         #     print(cpu)
-        utilizations = [cpu.LoadPercentage for cpu in c.Win32_Processor()]
-        print(utilizations)
-        utilization = int(sum(utilizations) / len(utilizations))  # avg all cores/processors
-        print(len(utilizations))
-        print(sum(utilizations))
-        print(utilization)
-
+        # utilizations = [cpu.LoadPercentage for cpu in c.Win32_Processor()]
+        # print(utilizations)
+        # utilization = int(sum(utilizations) / len(utilizations))  # avg all cores/processors
+        # print(len(utilizations))
+        # print(sum(utilizations))
+        # print(utilization)
+        # Available Memory
         # available_mbytes = int([mem.AvailableMBytes for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
         # print(available_mbytes)
         # Available Memory
@@ -111,8 +116,11 @@ class MyTestCase(unittest.TestCase):
         # print(available_mbytes)
 
         # Memory Used
-        # pct_in_use = int([mem.PercentCommittedBytesInUse for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
-        # print(pct_in_use)
+        for mem in c.Win32_PerfFormattedData_PerfOS_Memory():
+            print(mem)
+
+        pct_in_use = int([mem.PercentCommittedBytesInUse for mem in c.Win32_PerfFormattedData_PerfOS_Memory()][0])
+        print(pct_in_use)
 
         # test ping
         # host_name = '172.24.58.80'
