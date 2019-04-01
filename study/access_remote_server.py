@@ -31,8 +31,8 @@ class MyTestCase(unittest.TestCase):
 
         try:
             print("Establishing connection to %s" % ip)
-            # connection = wmi.WMI(ip, user=username, password=password)
-            connection = wmi.WMI()
+            connection = wmi.WMI(ip, user=username, password=password)
+            # connection = wmi.WMI()
 
             # ipconfig_result = connection.Win32_Process.Create(CommandLine="cmd.exe /c ipconfig")
             # print(ipconfig_result)

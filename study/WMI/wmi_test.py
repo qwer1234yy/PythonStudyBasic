@@ -4,6 +4,27 @@ import subprocess
 
 
 class MyTestCase(unittest.TestCase):
+    def test_Handling_Services(self):
+        ip = '172.24.58.80'
+        username = 'MSO\yang.yang'
+        password = 'pwcmsoYY123'
+        conn = wmi.WMI(ip, user=username, password=password)
+        for s in conn.Win32_Service(StartMode="Auto", State="Running"):
+            # filter service names
+            print(s.Name)
+            if 'MSSQLSERVER' == s.Name:
+                # result, = s.StartService()
+                # print(result)
+                print(s.State, s.StartMode, s.Name, s.DisplayName)
+
+    def test_basics(self):
+        conn = wmi.WMI()
+        print(conn.Win32_Process.properties.keys())
+        # for class_name in conn.classes:
+        #     print(class_name)
+        #     # if 'Process' in class_name:
+        #     #     print(class_name)
+
     def test_subprocess(self):
         # print(subprocess.call(['ipconfig']))
         print(subprocess.call(["dir"], shell=True))
