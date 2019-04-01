@@ -1,0 +1,7 @@
+iisreset --
+dir --
+shutdown /r -- to Restart your windows PC; "shutdown /s" to Shutdown your computer;
+shutdown /l -- to Log off your computer
+net start mssqlserver -- Start default instance of SQL Server
+net stop mssqlserver -- Stop default instance of SQL Server
+wmic logicaldisk get size,freespace,caption -- Hard disk information from command prompt
