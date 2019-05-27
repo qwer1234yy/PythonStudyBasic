@@ -1,4 +1,5 @@
 import unittest
+import HtmlTestRunner
 
 
 class MyTestCase(unittest.TestCase):
@@ -15,4 +16,4 @@ class MyTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\yyang212\\PycharmProjects\\PythonStudy\\study\\HTMLTestRunner_test\\result'))

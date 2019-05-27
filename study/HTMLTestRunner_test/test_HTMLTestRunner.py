@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import io
-import unicode
-import sys
+# import unicode
+import sys, string
 import unittest
 from study.HTMLTestRunner_test import HTMLTestRunner
 
@@ -12,11 +12,11 @@ from study.HTMLTestRunner_test import HTMLTestRunner
 def safe_unicode(obj, *args):
     """ return the unicode representation of obj """
     try:
-        return unicode(obj, *args)
+        return string(obj, *args)
     except UnicodeDecodeError:
         # obj is byte string
         ascii_text = str(obj).encode('string_escape')
-        return unicode(ascii_text)
+        return string(ascii_text)
 
 def safe_str(obj):
     """ return the byte string representation of obj """
@@ -24,7 +24,7 @@ def safe_str(obj):
         return str(obj)
     except UnicodeEncodeError:
         # obj is unicode
-        return unicode(obj).encode('unicode_escape')
+        return string(obj).encode('unicode_escape')
 
 # ----------------------------------------------------------------------
 # Sample tests to drive the HTMLTestRunner
